@@ -1,3 +1,5 @@
+package com.mycompany.quanlycuahang;
+
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -13,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 /**
  *
  * @author Truong
@@ -24,12 +27,11 @@ public class Admin extends javax.swing.JFrame {
      */
     private String user;
     private String hoten;
-    DecimalFormat formatter = new DecimalFormat("###,###,###");
-
+    DecimalFormat formatter = new DecimalFormat("###,###,###"); 
     public Admin(String user, String hoten) {
         initComponents();
         this.user = user;
-        txtXinChao.setText("Chào " + hoten);
+        txtXinChao.setText("Chào "+hoten);
         setLocationRelativeTo(null);
         initTable();
         initTableSP();
@@ -41,7 +43,7 @@ public class Admin extends javax.swing.JFrame {
         renderToTableEmploy(tblModel);
         initTableTK();
     }
-
+    
     public Admin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -55,8 +57,8 @@ public class Admin extends javax.swing.JFrame {
         renderToTableEmploy(tblModel);
         initTableTK();
     }
-
-    public void setButton() {
+    
+    public void setButton(){
         btnSua.setEnabled(false);
         btnXoa.setEnabled(false);
         btnSuaSP.setEnabled(false);
@@ -98,26 +100,6 @@ public class Admin extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        rdoNuoc = new javax.swing.JRadioButton();
-        rdoAn = new javax.swing.JRadioButton();
-        txtMASP = new javax.swing.JTextField();
-        txtTenSP = new javax.swing.JTextField();
-        txtGiaSP = new javax.swing.JTextField();
-        txtDonViSP = new javax.swing.JTextField();
-        btnThemSP = new javax.swing.JButton();
-        btnXoaSP = new javax.swing.JButton();
-        btnSuaSP = new javax.swing.JButton();
-        btnHuySP = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblSP = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMain = new javax.swing.JTable();
@@ -169,6 +151,26 @@ public class Admin extends javax.swing.JFrame {
         txtDoanhThuAn = new javax.swing.JTextField();
         txtDoanhThuUong = new javax.swing.JTextField();
         txtDoanhThu = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        rdoNuoc = new javax.swing.JRadioButton();
+        rdoAn = new javax.swing.JRadioButton();
+        txtMASP = new javax.swing.JTextField();
+        txtTenSP = new javax.swing.JTextField();
+        txtGiaSP = new javax.swing.JTextField();
+        txtDonViSP = new javax.swing.JTextField();
+        btnThemSP = new javax.swing.JButton();
+        btnXoaSP = new javax.swing.JButton();
+        btnSuaSP = new javax.swing.JButton();
+        btnHuySP = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblSP = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         dlgDMK.setTitle("ĐỔI MẬT KHẨU");
         dlgDMK.setLocation(new java.awt.Point(400, 250));
@@ -378,7 +380,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
@@ -401,180 +403,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 560));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel14.setText("Mã Sản Phẩm");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("Tên Sản Phẩm");
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("Giá");
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Đơn vị");
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setText("Loại");
-
-        buttonGroup3.add(rdoNuoc);
-        rdoNuoc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        rdoNuoc.setSelected(true);
-        rdoNuoc.setText("Nước uống");
-        rdoNuoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoNuocActionPerformed(evt);
-            }
-        });
-
-        buttonGroup3.add(rdoAn);
-        rdoAn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        rdoAn.setText("Ăn vặt");
-        rdoAn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoAnActionPerformed(evt);
-            }
-        });
-
-        btnThemSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnThemSP.setText("Thêm");
-        btnThemSP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemSPActionPerformed(evt);
-            }
-        });
-
-        btnXoaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnXoaSP.setText("Xóa");
-        btnXoaSP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaSPActionPerformed(evt);
-            }
-        });
-
-        btnSuaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSuaSP.setText("Sửa");
-        btnSuaSP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaSPActionPerformed(evt);
-            }
-        });
-
-        btnHuySP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnHuySP.setText("Hủy");
-        btnHuySP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHuySPActionPerformed(evt);
-            }
-        });
-
-        tblSP.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblSP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblSPMouseClicked(evt);
-            }
-        });
-        tblSP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tblSPKeyReleased(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tblSP);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtGiaSP, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                    .addComponent(rdoNuoc)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rdoAn))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtTenSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                                    .addComponent(txtMASP, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addComponent(txtDonViSP))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btnThemSP)
-                        .addGap(59, 59, 59)
-                        .addComponent(btnXoaSP)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnSuaSP)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnHuySP)
-                        .addGap(112, 112, 112))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMASP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15)
-                            .addComponent(txtTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtGiaSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDonViSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdoNuoc)
-                    .addComponent(rdoAn)
-                    .addComponent(jLabel18))
-                .addGap(14, 14, 14)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThemSP)
-                    .addComponent(btnXoaSP)
-                    .addComponent(btnSuaSP)
-                    .addComponent(btnHuySP))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel4);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 560));
 
         tblMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -741,7 +570,7 @@ public class Admin extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTaiKhoan)
                             .addComponent(txtMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -949,7 +778,7 @@ public class Admin extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbxTuNam, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxDenNam, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -1013,7 +842,180 @@ public class Admin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel5);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, -25, 700, 580));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Mã Sản Phẩm");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Tên Sản Phẩm");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Giá");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Đơn vị");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Loại");
+
+        buttonGroup3.add(rdoNuoc);
+        rdoNuoc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        rdoNuoc.setSelected(true);
+        rdoNuoc.setText("Nước uống");
+        rdoNuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoNuocActionPerformed(evt);
+            }
+        });
+
+        buttonGroup3.add(rdoAn);
+        rdoAn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        rdoAn.setText("Ăn vặt");
+        rdoAn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoAnActionPerformed(evt);
+            }
+        });
+
+        btnThemSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnThemSP.setText("Thêm");
+        btnThemSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemSPActionPerformed(evt);
+            }
+        });
+
+        btnXoaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnXoaSP.setText("Xóa");
+        btnXoaSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaSPActionPerformed(evt);
+            }
+        });
+
+        btnSuaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSuaSP.setText("Sửa");
+        btnSuaSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaSPActionPerformed(evt);
+            }
+        });
+
+        btnHuySP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnHuySP.setText("Hủy");
+        btnHuySP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuySPActionPerformed(evt);
+            }
+        });
+
+        tblSP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSPMouseClicked(evt);
+            }
+        });
+        tblSP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblSPKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblSP);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtGiaSP, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                    .addComponent(rdoNuoc)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rdoAn))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtTenSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                                    .addComponent(txtMASP, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(txtDonViSP))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(btnThemSP)
+                        .addGap(59, 59, 59)
+                        .addComponent(btnXoaSP)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnSuaSP)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnHuySP)
+                        .addGap(112, 112, 112))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMASP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(33, 33, 33))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtGiaSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel16)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonViSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdoNuoc)
+                    .addComponent(rdoAn)
+                    .addComponent(jLabel18))
+                .addGap(14, 14, 14)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnThemSP)
+                    .addComponent(btnXoaSP)
+                    .addComponent(btnSuaSP)
+                    .addComponent(btnHuySP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel4);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, -25, 710, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1032,8 +1034,8 @@ public class Admin extends javax.swing.JFrame {
         btnThem.setEnabled(true);
         btnSua.setEnabled(false);
         btnXoa.setEnabled(false);
-
-
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1041,27 +1043,28 @@ public class Admin extends javax.swing.JFrame {
         dlgDMK.setVisible(true);
         dlgDMK.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    public void renderToTableEmploy(DefaultTableModel tblModel) {
+    
+    
+    public void renderToTableEmploy(DefaultTableModel tblModel){
         tblModel.setRowCount(0);
-        String pw = "";
+        String pw="";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+                        Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "select * from user";
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+            String sql = "select * from user" ;
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {
+            while (rs.next()){
                 Object[] row = new Object[]{
-                    rs.getString(1), rs.getString(3), rs.getInt(4), rs.getInt(5),
-                    rs.getInt(6), rs.getInt(7)
+                    rs.getString(1), rs.getString(3), rs.getInt(4),rs.getInt(5) ,
+                    rs.getInt(6),rs.getInt(7)
                 };
-                tblModel.addRow(row);
+            tblModel.addRow(row);
             }
-
+           
             rs.close();
             st.close();
             conn.close();
@@ -1070,27 +1073,27 @@ public class Admin extends javax.swing.JFrame {
         }
         tblModel.fireTableDataChanged();
     }
-
-    public void renderToTableSP(DefaultTableModel tblModel) {
+    
+    public void renderToTableSP(DefaultTableModel tblModel){
         tblModelSP.setRowCount(0);
-
+       
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+           Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "select * from product";
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+            String sql = "select * from product" ;
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {
+            while (rs.next()){
                 Object[] row = new Object[]{
-                    rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4),
+                    rs.getString(1), rs.getString(2), rs.getInt(3),rs.getString(4) ,
                     rs.getInt(5)
                 };
-                tblModelSP.addRow(row);
+            tblModelSP.addRow(row);
             }
-
+           
             rs.close();
             st.close();
             conn.close();
@@ -1099,51 +1102,52 @@ public class Admin extends javax.swing.JFrame {
         }
         tblModelSP.fireTableDataChanged();
     }
-
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        String pw = "";
+        String pw="";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "select password from user WHERE account=?";
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+            String sql = "select password from user WHERE account=?" ;
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, user);
+            st.setString(1,user);
             ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                pw = rs.getString(1);
-            }
+            if (rs.next())
+            pw = rs.getString(1);
             rs.close();
             st.close();
             conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (!pw.equals(txtMatKhauCu.getText()))
+        if(!pw.equals(txtMatKhauCu.getText()))
             txtMKC.setText("SAI MẬT KHẨU!");
-        else {
+        else{
             txtMKC.setText(" ");
-            if (txtMatKhauMoi.getText().trim().isEmpty()) {
+            if (txtMatKhauMoi.getText().trim().isEmpty()){
                 txtMKM1.setText("KHÔNG ĐƯỢC ĐỂ TRỐNG!");
-            } else if (!txtMatKhauMoi.getText().equals(txtMatKhauMoi2.getText())) {
+            }else
+            if(!txtMatKhauMoi.getText().equals(txtMatKhauMoi2.getText())){
                 txtMKM.setText("KHÔNG KHỚP!");
                 txtMKM1.setText(" ");
-            } else {
-
+            }
+            else {
+                
                 txtMKM.setText(" ");
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-                    String sql = "UPDATE user SET password=? WHERE account=?";
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql = "UPDATE user SET password=? WHERE account=?" ;
                     PreparedStatement st = conn.prepareStatement(sql);
-                    st.setString(1, txtMatKhauMoi.getText());
-                    st.setString(2, user);
+                    st.setString(1,txtMatKhauMoi.getText());
+                    st.setString(2,user);
                     int dong = st.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Thành công!");
                     txtMatKhauCu.setText("");
@@ -1168,10 +1172,10 @@ public class Admin extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        int yes = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn Đăng xuất không?", "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
-        if (yes == 0) {
+        int yes= JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn Đăng xuất không?", "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
+        if (yes==0){
             this.dispose();
-            Dangnhap dn = new Dangnhap();
+            LoginFrm dn = new LoginFrm();
             dn.setVisible(true);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -1182,7 +1186,7 @@ public class Admin extends javax.swing.JFrame {
         lblNhansu.setBackground(Color.green);
         jLabel2.setBackground(Color.yellow);
         jLabel3.setBackground(Color.yellow);
-
+        
     }//GEN-LAST:event_lblNhansuMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -1192,8 +1196,8 @@ public class Admin extends javax.swing.JFrame {
         jLabel2.setBackground(Color.green);
         jLabel3.setBackground(Color.yellow);
         renderToTableSP(tblModelSP);
-
-
+        
+        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -1203,96 +1207,91 @@ public class Admin extends javax.swing.JFrame {
         jLabel2.setBackground(Color.yellow);
         jLabel3.setBackground(Color.green);
     }//GEN-LAST:event_jLabel3MouseClicked
-    private int checkNamSinh(String s) {
+    private int checkNamSinh(String s){
         int ns = -1;
-        try {
+        try{
             ns = Integer.parseInt(s);
-            if (ns < 1900 || ns > 2021) {
+            if (ns<1900||ns>2021){
                 return -1;
             }
-        } catch (Exception e) {
+        }
+        catch(Exception e){
             return -1;
         }
         return ns;
     }
-
-    private int checkML(String s) {
+    private int checkML(String s){
         int ml = -1;
-        try {
+        try{
             ml = Integer.parseInt(s);
-            if (ml < 0) {
-                ml = -1;
-            }
-        } catch (Exception e) {
+            if(ml<0) ml = -1;
+        }
+        catch(Exception e){
             return -1;
         }
         return ml;
     }
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-
-        String taikhoan, matkhau, ten;
-        int gioitinh, loaitaikhoan, namsinh, mucluong;
+        
+        String taikhoan,matkhau,ten;
+        int gioitinh,loaitaikhoan,namsinh,mucluong;
         taikhoan = txtTaiKhoan.getText().trim();
         matkhau = txtMatKhau.getText().trim();
         ten = txtTen.getText().trim();
         namsinh = checkNamSinh(txtNamSinh.getText());
         mucluong = checkML(txtMucLuong.getText());
-        if (rdoNam.isSelected()) {
-            gioitinh = 1;
-        } else {
-            gioitinh = 0;
-        }
-        if (rdoNhanVien.isSelected()) {
-            loaitaikhoan = 2;
-        } else if (rdoQuanly.isSelected()) {
-            loaitaikhoan = 0;
-        } else {
-            loaitaikhoan = 1;
-        }
-        if (taikhoan.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Tài khoản không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        if(rdoNam.isSelected()) gioitinh = 1; else gioitinh = 0;
+        if(rdoNhanVien.isSelected()) loaitaikhoan = 2;
+            else if(rdoQuanly.isSelected()) loaitaikhoan = 0;
+            else loaitaikhoan = 1;
+        if (taikhoan.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Tài khoản không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTaiKhoan.requestFocus();
-        } else if (matkhau.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Mật khẩu không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (matkhau.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Mật khẩu không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtMatKhau.requestFocus();
-        } else if (ten.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Họ Tên không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (ten.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Họ Tên không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTen.requestFocus();
-        } else if (namsinh == -1) {
-            JOptionPane.showMessageDialog(this, "Năm sinh không hợp lệ (1900-2021)", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (namsinh==-1){
+            JOptionPane.showMessageDialog(this,"Năm sinh không hợp lệ (1900-2021)","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtNamSinh.requestFocus();
-        } else if (mucluong == -1) {
-            JOptionPane.showMessageDialog(this, "Mức lương không hợp lệ", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (mucluong==-1){
+            JOptionPane.showMessageDialog(this,"Mức lương không hợp lệ","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtMucLuong.requestFocus();
         } else
         
         // thêm
         try {
-           Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "INSERT INTO user VALUES(?,?,?,?,?,?,?)";
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, taikhoan);
-            st.setString(2, matkhau);
-            st.setString(3, ten);
-            st.setInt(4, namsinh);
-            st.setInt(5, gioitinh);
-            st.setInt(6, loaitaikhoan);
-            st.setInt(7, mucluong);
-            int sodong = st.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Thêm thành công!");
-            renderToTableEmploy(tblModel);
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Tài khoản đã tồn tại", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        }
-
-
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql="INSERT INTO user VALUES(?,?,?,?,?,?,?)";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    st.setString(1, taikhoan);
+                    st.setString(2, matkhau);
+                    st.setString(3, ten);
+                    st.setInt(4, namsinh);
+                    st.setInt(5, gioitinh);
+                    st.setInt(6, loaitaikhoan);
+                    st.setInt(7, mucluong);
+                    int sodong=st.executeUpdate();
+                    JOptionPane.showMessageDialog(this,"Thêm thành công!");
+                    renderToTableEmploy(tblModel);
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this,"Tài khoản đã tồn tại","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
+                }
+        
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void tblMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMainMouseClicked
@@ -1303,19 +1302,18 @@ public class Admin extends javax.swing.JFrame {
         txtMatKhau.setText("");
         txtNamSinh.setText(tblMain.getValueAt(row, 2).toString());
         txtMucLuong.setText(tblMain.getValueAt(row, 5).toString());
-        if (tblMain.getValueAt(row, 3).toString().equals("1")) {
+        if (tblMain.getValueAt(row, 3).toString().equals("1"))
             rdoNam.setSelected(true);
-        } else {
+        else 
             rdoNu.setSelected(true);
-        }
-        if (tblMain.getValueAt(row, 4).toString().equals("0")) {
+        if (tblMain.getValueAt(row, 4).toString().equals("0"))
             rdoQuanly.setSelected(true);
-        } else if (tblMain.getValueAt(row, 4).toString().equals("1")) {
+        else 
+        if (tblMain.getValueAt(row, 4).toString().equals("1"))
             rdoThuNgan.setSelected(true);
-        } else {
+        else
             rdoNhanVien.setSelected(true);
-        }
-
+        
         txtMatKhau.setEnabled(false);
         txtTaiKhoan.setEnabled(false);
         btnThem.setEnabled(false);
@@ -1325,94 +1323,93 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        String ten, taikhoan;
-        int gioitinh, loaitaikhoan, namsinh, mucluong;
-
-        taikhoan = txtTaiKhoan.getText();
+        String ten,taikhoan;
+        int gioitinh,loaitaikhoan,namsinh,mucluong;
+        
+        taikhoan=txtTaiKhoan.getText();
         ten = txtTen.getText().trim();
         namsinh = checkNamSinh(txtNamSinh.getText());
         mucluong = checkML(txtMucLuong.getText());
-        if (rdoNam.isSelected()) {
-            gioitinh = 1;
-        } else {
-            gioitinh = 0;
-        }
-        if (rdoNhanVien.isSelected()) {
-            loaitaikhoan = 2;
-        } else if (rdoQuanly.isSelected()) {
-            loaitaikhoan = 0;
-        } else {
-            loaitaikhoan = 1;
-        }
-
-        if (ten.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Họ Tên không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        if(rdoNam.isSelected()) gioitinh = 1; else gioitinh = 0;
+        if(rdoNhanVien.isSelected()) loaitaikhoan = 2;
+            else if(rdoQuanly.isSelected()) loaitaikhoan = 0;
+            else loaitaikhoan = 1;
+        
+        if (ten.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Họ Tên không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTen.requestFocus();
-        } else if (namsinh == -1) {
-            JOptionPane.showMessageDialog(this, "Năm sinh không hợp lệ (1900-2021)", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (namsinh==-1){
+            JOptionPane.showMessageDialog(this,"Năm sinh không hợp lệ (1900-2021)","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtNamSinh.requestFocus();
-        } else if (mucluong == -1) {
-            JOptionPane.showMessageDialog(this, "Mức lương không hợp lệ", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (mucluong==-1){
+            JOptionPane.showMessageDialog(this,"Mức lương không hợp lệ","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtMucLuong.requestFocus();
-        } else {
+        } 
+        else
+        
+        {
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-                String sql = "UPDATE user SET username=?,birthday=?,male=?,accounttype=?, salary=? WHERE account=?";
-                PreparedStatement st = conn.prepareStatement(sql);
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql = "UPDATE user SET username=?,birthday=?,male=?,accounttype=?, salary=? WHERE account=?" ;
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    
+                    st.setString(1, ten);
+                    st.setInt(2, namsinh);
+                    st.setInt(3, gioitinh);
+                    st.setInt(4, loaitaikhoan);
+                    st.setInt(5,mucluong);
+                    st.setString(6, taikhoan);
+                    
+                    int dong = st.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Thành công!");
+                    renderToTableEmploy(tblModel);
+                    
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-                st.setString(1, ten);
-                st.setInt(2, namsinh);
-                st.setInt(3, gioitinh);
-                st.setInt(4, loaitaikhoan);
-                st.setInt(5, mucluong);
-                st.setString(6, taikhoan);
-
-                int dong = st.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Thành công!");
-                renderToTableEmploy(tblModel);
-
-                st.close();
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        String taikhoan = txtTaiKhoan.getText();
-
-        int yes = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn xóa tài khoản " + txtTaiKhoan.getText(), "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
-
-        if (yes == 0)
+        String taikhoan=txtTaiKhoan.getText();
+        
+        int yes= JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn xóa tài khoản "+txtTaiKhoan.getText(), "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
+        
+        if(yes==0)
             try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+                    Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "delete from user where account=?;";
-            PreparedStatement st = conn.prepareStatement(sql);
-
-            st.setString(1, taikhoan);
-
-            int dong = st.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Thành công!");
-            renderToTableEmploy(tblModel);
-            jButton4ActionPerformed(evt);
-
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql = "delete from user where account=?;" ;
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    
+                    st.setString(1, taikhoan);
+                    
+                    
+                    int dong = st.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Thành công!");
+                    renderToTableEmploy(tblModel);
+                    jButton4ActionPerformed(evt);
+                    
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void rdoNuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNuocActionPerformed
@@ -1425,55 +1422,54 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnThemSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSPActionPerformed
         // TODO add your handling code here:
-        String masp, tensp, donvi;
-        int gia, loai;
+        String masp,tensp, donvi;
+        int gia,loai;
         masp = txtMASP.getText().trim();
         tensp = txtTenSP.getText().trim();
         donvi = txtDonViSP.getText().trim();
         gia = checkML(txtGiaSP.getText());
-        if (rdoNuoc.isSelected()) {
-            loai = 1;
-        } else {
-            loai = 2;
-        }
-
-        if (masp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Mã Sản Phẩm không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        if(rdoNuoc.isSelected()) loai = 1; else loai = 2;
+        
+        if (masp.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Mã Sản Phẩm không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtMASP.requestFocus();
-        } else if (tensp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Tên Sản Phẩm không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (tensp.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Tên Sản Phẩm không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTenSP.requestFocus();
-        } else if (donvi.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Đơn Vị không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (donvi.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Đơn Vị không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtDonViSP.requestFocus();
-        } else if (gia == -1) {
-            JOptionPane.showMessageDialog(this, "Giá không hợp lệ", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (gia==-1){
+            JOptionPane.showMessageDialog(this,"Giá không hợp lệ","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtGiaSP.requestFocus();
         } else
         
         // thêm
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "INSERT INTO product VALUES(?,?,?,?,?)";
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, masp);
-            st.setString(2, tensp);
-            st.setInt(3, gia);
-            st.setString(4, donvi);
-            st.setInt(5, loai);
-
-            int sodong = st.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Thêm thành công!");
-            renderToTableSP(tblModelSP);
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Sản phẩm đã tồn tại", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        }
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql="INSERT INTO product VALUES(?,?,?,?,?)";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    st.setString(1, masp);
+                    st.setString(2, tensp);
+                    st.setInt(3, gia);
+                    st.setString(4, donvi);
+                    st.setInt(5, loai);
+                    
+                    int sodong=st.executeUpdate();
+                    JOptionPane.showMessageDialog(this,"Thêm thành công!");
+                    renderToTableSP(tblModelSP);
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this,"Sản phẩm đã tồn tại","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
+                }
     }//GEN-LAST:event_btnThemSPActionPerformed
 
     private void tblSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSPMouseClicked
@@ -1482,11 +1478,10 @@ public class Admin extends javax.swing.JFrame {
         txtTenSP.setText(tblSP.getValueAt(row, 1).toString());
         txtGiaSP.setText(tblSP.getValueAt(row, 2).toString());
         txtDonViSP.setText(tblSP.getValueAt(row, 3).toString());
-        if (tblSP.getValueAt(row, 4).toString().equals("1")) {
+        if (tblSP.getValueAt(row, 4).toString().equals("1"))
             rdoNuoc.setSelected(true);
-        } else {
+        else 
             rdoAn.setSelected(true);
-        }
         txtMASP.setEnabled(false);
         btnThemSP.setEnabled(false);
         btnSuaSP.setEnabled(true);
@@ -1500,7 +1495,7 @@ public class Admin extends javax.swing.JFrame {
         txtTenSP.setText("");
         txtGiaSP.setText("");
         txtDonViSP.setText("");
-
+       
         rdoNuoc.setSelected(true);
         txtMASP.setEnabled(true);
         btnThemSP.setEnabled(true);
@@ -1510,108 +1505,109 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnXoaSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaSPActionPerformed
         // TODO add your handling code here:
-        String masp = txtMASP.getText();
-
-        int yes = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn xóa sản phẩm " + txtMASP.getText(), "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
-
-        if (yes == 0)
+        String masp=txtMASP.getText();
+        
+        int yes= JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn xóa sản phẩm "+txtMASP.getText(), "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
+        
+        if(yes==0)
             try {
-           Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "delete from product where idproduct=?;";
-            PreparedStatement st = conn.prepareStatement(sql);
-
-            st.setString(1, masp);
-
-            int dong = st.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Thành công!");
-            renderToTableSP(tblModelSP);
-            btnHuySPActionPerformed(evt);
-
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql = "delete from product where idproduct=?;" ;
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    
+                    st.setString(1, masp);
+                    
+                    
+                    int dong = st.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Thành công!");
+                    renderToTableSP(tblModelSP);
+                    btnHuySPActionPerformed(evt);
+                    
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
     }//GEN-LAST:event_btnXoaSPActionPerformed
 
     private void btnSuaSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaSPActionPerformed
         // TODO add your handling code here:
-        String tensp, masp, donvisp;
-        int loaisp, giasp;
-
-        masp = txtMASP.getText();
+         String tensp,masp,donvisp;
+        int loaisp,giasp;
+        
+        masp=txtMASP.getText();
         tensp = txtTenSP.getText().trim();
         donvisp = txtDonViSP.getText().trim();
         giasp = checkML(txtGiaSP.getText());
-        if (rdoNuoc.isSelected()) {
-            loaisp = 1;
-        } else {
-            loaisp = 2;
-        }
-
-        if (tensp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Tên Sản Phẩm không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        if(rdoNuoc.isSelected()) loaisp = 1; else loaisp = 2;
+        
+        if (tensp.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Tên Sản Phẩm không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTen.requestFocus();
-        } else if (donvisp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Đơn Vị không được để trống", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (donvisp.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Đơn Vị không được để trống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtTen.requestFocus();
-        } else if (giasp == -1) {
-            JOptionPane.showMessageDialog(this, "Giá không hợp lệ", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }else
+        if (giasp==-1){
+            JOptionPane.showMessageDialog(this,"Giá không hợp lệ","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
             txtMucLuong.requestFocus();
-        } else {
+        } 
+        else
+        
+        {
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                     Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-                String sql = "UPDATE product SET name=?,price=?,unit=?,type=? WHERE idproduct=?";
-                PreparedStatement st = conn.prepareStatement(sql);
-
-                st.setString(1, tensp);
-                st.setInt(2, giasp);
-                st.setString(3, donvisp);
-                st.setInt(4, loaisp);
-                st.setString(5, masp);
-
-                int dong = st.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Thành công!");
-                renderToTableSP(tblModelSP);
-
-                st.close();
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+                    String sql = "UPDATE product SET name=?,price=?,unit=?,type=? WHERE idproduct=?" ;
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    
+                    st.setString(1, tensp);
+                    st.setInt(2, giasp);
+                    st.setString(3, donvisp);
+                    st.setInt(4, loaisp);
+                    st.setString(5, masp);
+                    
+                    int dong = st.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Thành công!");
+                    renderToTableSP(tblModelSP);
+                    
+                    st.close();
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         }
     }//GEN-LAST:event_btnSuaSPActionPerformed
 
     private void tblMainKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblMainKeyReleased
         // TODO add your handling code here:
-        int row = tblMain.getSelectedRow();
+            int row = tblMain.getSelectedRow();
         txtTaiKhoan.setText(tblMain.getValueAt(row, 0).toString());
         txtTen.setText(tblMain.getValueAt(row, 1).toString());
         txtMatKhau.setText("");
         txtNamSinh.setText(tblMain.getValueAt(row, 2).toString());
         txtMucLuong.setText(tblMain.getValueAt(row, 5).toString());
-        if (tblMain.getValueAt(row, 3).toString().equals("1")) {
+        if (tblMain.getValueAt(row, 3).toString().equals("1"))
             rdoNam.setSelected(true);
-        } else {
+        else 
             rdoNu.setSelected(true);
-        }
-        if (tblMain.getValueAt(row, 4).toString().equals("0")) {
+        if (tblMain.getValueAt(row, 4).toString().equals("0"))
             rdoQuanly.setSelected(true);
-        } else if (tblMain.getValueAt(row, 4).toString().equals("1")) {
+        else 
+        if (tblMain.getValueAt(row, 4).toString().equals("1"))
             rdoThuNgan.setSelected(true);
-        } else {
+        else
             rdoNhanVien.setSelected(true);
-        }
-
+        
         txtMatKhau.setEnabled(false);
         txtTaiKhoan.setEnabled(false);
         btnThem.setEnabled(false);
@@ -1626,128 +1622,98 @@ public class Admin extends javax.swing.JFrame {
         txtTenSP.setText(tblSP.getValueAt(row, 1).toString());
         txtGiaSP.setText(tblSP.getValueAt(row, 2).toString());
         txtDonViSP.setText(tblSP.getValueAt(row, 3).toString());
-        if (tblSP.getValueAt(row, 4).toString().equals("1")) {
+        if (tblSP.getValueAt(row, 4).toString().equals("1"))
             rdoNuoc.setSelected(true);
-        } else {
+        else 
             rdoAn.setSelected(true);
-        }
         txtMASP.setEnabled(false);
         btnThemSP.setEnabled(false);
         btnSuaSP.setEnabled(true);
         btnXoaSP.setEnabled(true);
     }//GEN-LAST:event_tblSPKeyReleased
 
-    public String layGio(String s) {
-        String[] parts = s.split("-");
-        String nam = parts[0];
-        String thang = parts[1];
-        String ngay = parts[2];
-        String[] partGio = ngay.split(" ");
-        ngay = partGio[0];
-        String[] partPhut = partGio[1].split(":");
-        String gio = partPhut[0] + ":" + partPhut[1];
-        return gio + " " + ngay + "-" + thang + "-" + nam;
+    
+    public String layGio(String s){
+             String[] parts = s.split("-");
+             String nam = parts[0]; 
+             String thang = parts[1];
+             String ngay = parts[2];  
+             String[] partGio = ngay.split(" ");
+             ngay = partGio[0];
+             String[] partPhut = partGio[1].split(":");
+             String gio=partPhut[0]+":"+partPhut[1];
+             return gio+" "+ngay+"-"+thang+"-"+nam;
     }
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String tuNgay = cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem() + "-" + cbxTuNam.getSelectedItem();
-        String denNgay = cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + "-" + cbxDenNam.getSelectedItem()
-                + " 23:59:00";
-
-        long doanhthuan = 0, doanhthuuong = 0, doanhthu = 0;
-
+        String tuNgay = cbxTuThang.getSelectedItem()+"-"+cbxTuNgay.getSelectedItem()+"-"+cbxTuNam.getSelectedItem();
+        String denNgay = cbxDenThang.getSelectedItem()+"-"+cbxDenNgay.getSelectedItem()+"-"+cbxDenNam.getSelectedItem()+
+                " 23:59:00";
+        
+        long doanhthuan=0, doanhthuuong=0, doanhthu=0;
+       
+        
         try {
             tblModelThongKe.setRowCount(0);
-            Class.forName("com.mysql.cj.jdbc.Driver");
+             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
-            String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
-            String sql = "select * from receipt where datetime>=? and datetime<=?";
+        String user = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,user,pass);
+            String sql = "select * from receipt where datetime>=? and datetime<=?" ;
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, tuNgay);
-            st.setString(2, denNgay);
+            st.setString(1,tuNgay);
+            st.setString(2,denNgay);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {
+            while (rs.next()){
                 Object[] row = new Object[]{
-                    layGio(rs.getString(3)), rs.getInt(1), rs.getString(2), formatter.format(rs.getInt(5)),
+                    layGio(rs.getString(3)), rs.getInt(1), rs.getString(2),formatter.format(rs.getInt(5)) ,
                     formatter.format(rs.getInt(4))
                 };
-                doanhthuan += rs.getInt(5);
-                doanhthuuong += rs.getInt(4);
-                tblModelThongKe.addRow(row);
+                doanhthuan+=rs.getInt(5);
+                doanhthuuong+=rs.getInt(4);
+            tblModelThongKe.addRow(row);
             }
             tblModelThongKe.fireTableDataChanged();
-            txtDoanhThuAn.setText(formatter.format(doanhthuan) + " VNĐ");
-            txtDoanhThuUong.setText(formatter.format(doanhthuuong) + " VNĐ");
-            doanhthu = doanhthuan + doanhthuuong;
-            txtDoanhThu.setText(formatter.format(doanhthu) + " VNĐ");
+            txtDoanhThuAn.setText(formatter.format(doanhthuan)+" VNĐ");
+            txtDoanhThuUong.setText(formatter.format(doanhthuuong)+" VNĐ");
+            doanhthu=doanhthuan+doanhthuuong;
+            txtDoanhThu.setText(formatter.format(doanhthu)+" VNĐ");
             rs.close();
             st.close();
             conn.close();
         } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(this, "Ngày không hợp lệ", "LỖI", JOptionPane.ERROR_MESSAGE);
+           
+            JOptionPane.showMessageDialog(this,"Ngày không hợp lệ","LỖI",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private DefaultTableModel tblModel;
     private DefaultTableModel tblModelSP;
     private DefaultTableModel tblModelThongKe;
-
-    private void initTable() {
-        tblModel = new DefaultTableModel();
-        tblModel.setColumnIdentifiers(new Object[]{"Tài khoản", "Tên", "Năm sinh", "Giới tính", "Loại Tài khoản", "Mức lương"});
+    
+    private void initTable(){
+        tblModel = new  DefaultTableModel();
+        tblModel.setColumnIdentifiers(new Object[]{"Tài khoản","Tên","Năm sinh","Giới tính","Loại Tài khoản","Mức lương"});
         tblMain.setModel(tblModel);
     }
-
-    private void initTableSP() {
-        tblModelSP = new DefaultTableModel();
-        tblModelSP.setColumnIdentifiers(new Object[]{"Mã sản phẩm", "Tên sản phẩm", "Giá", "Đơn vị", "Loại"});
+    private void initTableSP(){
+        tblModelSP = new  DefaultTableModel();
+        tblModelSP.setColumnIdentifiers(new Object[]{"Mã sản phẩm","Tên sản phẩm","Giá","Đơn vị","Loại"});
         tblSP.setModel(tblModelSP);
     }
-
-    private void initTableTK() {
-        tblModelThongKe = new DefaultTableModel();
-        tblModelThongKe.setColumnIdentifiers(new Object[]{"Thời gian", "Số hóa đơn", "Người lập", "Doanh thu ăn", "Doanh thu uống"});
+     private void initTableTK(){
+        tblModelThongKe = new  DefaultTableModel();
+        tblModelThongKe.setColumnIdentifiers(new Object[]{"Thời gian","Số hóa đơn","Người lập","Doanh thu ăn","Doanh thu uống"});
         tblThongKe.setModel(tblModelThongKe);
     }
+    
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Admin().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHuySP;
