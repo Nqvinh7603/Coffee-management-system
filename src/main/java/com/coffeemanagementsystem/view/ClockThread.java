@@ -1,4 +1,4 @@
-package com.mycompany.quanlycuahang;
+package com.coffeemanagementsystem.view;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
