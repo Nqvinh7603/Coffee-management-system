@@ -1,6 +1,5 @@
 package com.coffeemanagementsystem.view;
 
-
 import java.awt.Color;
 import java.sql.Array;
 import java.sql.Connection;
@@ -15,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Quang Vinh B2110111
@@ -25,12 +23,13 @@ public class Thungan extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    int ban=0,loaiSP=0,dongDangChon=-1;
-    int banDaChon[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int ban = 0, loaiSP = 0, dongDangChon = -1;
+    int banDaChon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     private String user, hoten;
-    DecimalFormat formatter = new DecimalFormat("###,###,###"); 
-    public Thungan(String user, String hoten){
-        this.user =  user;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+
+    public Thungan(String user, String hoten) {
+        this.user = user;
         this.hoten = hoten;
         initComponents();
         setLocationRelativeTo(null);
@@ -38,12 +37,13 @@ public class Thungan extends javax.swing.JFrame {
         initTableTTHD();
         btnXoa.setEnabled(false);
         txtDangChon.setEditable(false);
-        txtChao.setText(""+hoten);
+        txtChao.setText("" + hoten);
         clock();
         initToMau();
         initMauBan();
         toMau();
     }
+
     public Thungan() {
         initComponents();
         setLocationRelativeTo(null);
@@ -56,54 +56,54 @@ public class Thungan extends javax.swing.JFrame {
         initToMau();
         toMau();
     }
-    
-    private void clock(){
-        ClockThread clock= new ClockThread(lblClock);
+
+    private void clock() {
+        ClockThread clock = new ClockThread(lblClock);
         clock.start();
     }
     private DefaultTableModel tblModelSP;
-    private DefaultTableModel tblModelTTHD,tblModelHD;
-    
-    private void initTableTTHD(){
-        tblModelTTHD = new  DefaultTableModel();
-        tblModelTTHD.setColumnIdentifiers(new Object[]{"Tên sản phẩm","Giá","Đơn vị","Số lượng"});
+    private DefaultTableModel tblModelTTHD, tblModelHD;
+
+    private void initTableTTHD() {
+        tblModelTTHD = new DefaultTableModel();
+        tblModelTTHD.setColumnIdentifiers(new Object[]{"Tên sản phẩm", "Giá", "Đơn vị", "Số lượng"});
         tblTTHD.setModel(tblModelTTHD);
     }
-    
-    private void initTableHD(){
-        tblModelHD = new  DefaultTableModel();
-        tblModelHD.setColumnIdentifiers(new Object[]{"Tên sản phẩm","Giá","Đơn vị","Số lượng","Tạm tính"});
+
+    private void initTableHD() {
+        tblModelHD = new DefaultTableModel();
+        tblModelHD.setColumnIdentifiers(new Object[]{"Tên sản phẩm", "Giá", "Đơn vị", "Số lượng", "Tạm tính"});
         tblHoaDon.setModel(tblModelHD);
     }
-    
-    private void initTableSP(){
-        tblModelSP = new  DefaultTableModel();
-        tblModelSP.setColumnIdentifiers(new Object[]{"Mã sản phẩm","Tên sản phẩm","Giá","Đơn vị"});
+
+    private void initTableSP() {
+        tblModelSP = new DefaultTableModel();
+        tblModelSP.setColumnIdentifiers(new Object[]{"Mã sản phẩm", "Tên sản phẩm", "Giá", "Đơn vị"});
         tblSP.setModel(tblModelSP);
     }
-    
-    private void renderToTableTTHD(){
+
+    private void renderToTableTTHD() {
         tblModelTTHD.setRowCount(0);
         btnXoa.setEnabled(false);
         btnThem.setEnabled(true);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-            String sql = "select * from temporary" ;
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
+            String sql = "select * from temporary";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while (rs.next()){
-                if (rs.getInt(1)==ban){
+            while (rs.next()) {
+                if (rs.getInt(1) == ban) {
                     Object[] row = new Object[]{
-                        rs.getString(3), rs.getInt(4),rs.getString(5) ,
+                        rs.getString(3), rs.getInt(4), rs.getString(5),
                         rs.getInt(7)
                     };
                     tblModelTTHD.addRow(row);
                 }
-            
+
             }
             rs.close();
             st.close();
@@ -113,30 +113,31 @@ public class Thungan extends javax.swing.JFrame {
         }
         tblModelTTHD.fireTableDataChanged();
     }
-    private void renderToTableSP(int loaiSP){
+
+    private void renderToTableSP(int loaiSP) {
         tblModelSP.setRowCount(0);
         btnXoa.setEnabled(false);
         btnThem.setEnabled(true);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-            String sql = "select * from product" ;
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
+            String sql = "select * from product";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while (rs.next()){
-                if (rs.getInt(5)==loaiSP){
+            while (rs.next()) {
+                if (rs.getInt(5) == loaiSP) {
                     Object[] row = new Object[]{
-                        rs.getString(1), rs.getString(2),formatter.format(rs.getInt(3)) ,
+                        rs.getString(1), rs.getString(2), formatter.format(rs.getInt(3)),
                         rs.getString(4)
                     };
                     tblModelSP.addRow(row);
                 }
-            
+
             }
-           
+
             rs.close();
             st.close();
             conn.close();
@@ -145,8 +146,7 @@ public class Thungan extends javax.swing.JFrame {
         }
         tblModelSP.fireTableDataChanged();
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1147,33 +1147,33 @@ public class Thungan extends javax.swing.JFrame {
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        ban=6;
-        lblBan.setText("TABLE"+ban);
+        ban = 6;
+        lblBan.setText("TABLE" + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-        ban=1;
-        lblBan.setText("TABLE "+ban);
+        ban = 1;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void rdoNuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoNuocMouseClicked
         // TODO add your handling code here:
-        loaiSP=1;
+        loaiSP = 1;
         renderToTableSP(loaiSP);
     }//GEN-LAST:event_rdoNuocMouseClicked
 
     private void rdoAnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoAnMouseClicked
         // TODO add your handling code here:
-        loaiSP=2;
+        loaiSP = 2;
         renderToTableSP(loaiSP);
     }//GEN-LAST:event_rdoAnMouseClicked
 
     private void tblSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSPMouseClicked
         // TODO add your handling code here:
-        dongDangChon=tblSP.getSelectedRow();
+        dongDangChon = tblSP.getSelectedRow();
         txtDangChon.setText(tblSP.getValueAt(dongDangChon, 0).toString());
         btnXoa.setEnabled(false);
         btnThem.setEnabled(true);
@@ -1181,227 +1181,234 @@ public class Thungan extends javax.swing.JFrame {
 
     private void tblTTHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTTHDMouseClicked
         // TODO add your handling code here:
-        int row=tblTTHD.getSelectedRow();
-        String tensp = tblTTHD.getValueAt(row,0).toString();
-        int soluong = Integer.parseInt(tblTTHD.getValueAt(row,3).toString());
+        int row = tblTTHD.getSelectedRow();
+        String tensp = tblTTHD.getValueAt(row, 0).toString();
+        int soluong = Integer.parseInt(tblTTHD.getValueAt(row, 3).toString());
         txtDangChon.setText(tensp);
         txtSoLuong.setValue(soluong);
-        
+
         btnXoa.setEnabled(true);
         btnThem.setEnabled(false);
     }//GEN-LAST:event_tblTTHDMouseClicked
-    private void initMauBan(){
-         try {
-                 Class.forName("com.mysql.cj.jdbc.Driver");
+    private void initMauBan() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-                String sql = "select * from temporary" ;
-                PreparedStatement st = conn.prepareStatement(sql);
-                ResultSet rs = st.executeQuery();
-                    while(rs.next()){
-                         banDaChon[rs.getInt(1)]=1;
-                    }
-                rs.close();
-                st.close();
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-                
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
+            String sql = "select * from temporary";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                banDaChon[rs.getInt(1)] = 1;
             }
+            rs.close();
+            st.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
     }
-    private void toMauBan(int i){
-        switch(i){
+
+    private void toMauBan(int i) {
+        switch (i) {
             case 1:
-                 btn1.setBackground(Color.cyan);
-                 break;
+                btn1.setBackground(Color.cyan);
+                break;
             case 2:
-                 btn2.setBackground(Color.cyan);
-                 break;
+                btn2.setBackground(Color.cyan);
+                break;
             case 3:
-                 btn3.setBackground(Color.cyan);
-                 break;
+                btn3.setBackground(Color.cyan);
+                break;
             case 4:
-                 btn4.setBackground(Color.cyan);
-                 break;
+                btn4.setBackground(Color.cyan);
+                break;
             case 5:
-                 btn5.setBackground(Color.cyan);
-                 break;
+                btn5.setBackground(Color.cyan);
+                break;
             case 6:
-                 btn6.setBackground(Color.cyan);
-                 break;
+                btn6.setBackground(Color.cyan);
+                break;
             case 7:
-                 btn7.setBackground(Color.cyan);
-                 break;
+                btn7.setBackground(Color.cyan);
+                break;
             case 8:
-                 btn8.setBackground(Color.cyan);
-                 break;
+                btn8.setBackground(Color.cyan);
+                break;
             case 9:
-                 btn9.setBackground(Color.cyan);
-                 break;
+                btn9.setBackground(Color.cyan);
+                break;
             case 10:
-                 btn10.setBackground(Color.cyan);
-                 break;
+                btn10.setBackground(Color.cyan);
+                break;
             case 11:
-                 btn11.setBackground(Color.cyan);
-                 break;
+                btn11.setBackground(Color.cyan);
+                break;
             case 12:
-                 btn12.setBackground(Color.cyan);
-                 break;
+                btn12.setBackground(Color.cyan);
+                break;
             case 13:
-                 btn13.setBackground(Color.cyan);
-                 break;
+                btn13.setBackground(Color.cyan);
+                break;
             case 14:
-                 btn14.setBackground(Color.cyan);
-                 break;
+                btn14.setBackground(Color.cyan);
+                break;
             case 15:
-                 btn15.setBackground(Color.cyan);
-                 break;
+                btn15.setBackground(Color.cyan);
+                break;
             case 16:
-                 btn16.setBackground(Color.cyan);
-                 break;
+                btn16.setBackground(Color.cyan);
+                break;
             case 17:
-                 btn17.setBackground(Color.cyan);
-                 break;
+                btn17.setBackground(Color.cyan);
+                break;
             case 18:
-                 btn18.setBackground(Color.cyan);
-                 break;
+                btn18.setBackground(Color.cyan);
+                break;
             case 19:
-                 btn19.setBackground(Color.cyan);
-                 break;
+                btn19.setBackground(Color.cyan);
+                break;
             case 20:
-                 btn20.setBackground(Color.cyan);
-                 break;
-                 
+                btn20.setBackground(Color.cyan);
+                break;
+
             default:
                 break;
         }
     }
-    private void toMau(){
-        for (int i=1;i<=20;i++)
-            if (banDaChon[i]==1)
-               toMauBan(i);
+
+    private void toMau() {
+        for (int i = 1; i <= 20; i++) {
+            if (banDaChon[i] == 1) {
+                toMauBan(i);
+            }
+        }
     }
-    private void initToMau(){
-        for (int i=1;i<=20;i++)
-               xoaMauBan(i);
+
+    private void initToMau() {
+        for (int i = 1; i <= 20; i++) {
+            xoaMauBan(i);
+        }
     }
-    private void xoaMauBan(int i){
-        switch(i){
+
+    private void xoaMauBan(int i) {
+        switch (i) {
             case 1:
-                 btn1.setBackground(Color.gray);
-                 break;
+                btn1.setBackground(Color.gray);
+                break;
             case 2:
-                 btn2.setBackground(Color.gray);
-                 break;
+                btn2.setBackground(Color.gray);
+                break;
             case 3:
-                 btn3.setBackground(Color.gray);
-                 break;
+                btn3.setBackground(Color.gray);
+                break;
             case 4:
-                 btn4.setBackground(Color.gray);
-                 break;
+                btn4.setBackground(Color.gray);
+                break;
             case 5:
-                 btn5.setBackground(Color.gray);
-                 break;
+                btn5.setBackground(Color.gray);
+                break;
             case 6:
-                 btn6.setBackground(Color.gray);
-                 break;
+                btn6.setBackground(Color.gray);
+                break;
             case 7:
-                 btn7.setBackground(Color.gray);
-                 break;
+                btn7.setBackground(Color.gray);
+                break;
             case 8:
-                 btn8.setBackground(Color.gray);
-                 break;
+                btn8.setBackground(Color.gray);
+                break;
             case 9:
-                 btn9.setBackground(Color.gray);
-                 break;
+                btn9.setBackground(Color.gray);
+                break;
             case 10:
-                 btn10.setBackground(Color.gray);
-                 break;
+                btn10.setBackground(Color.gray);
+                break;
             case 11:
-                 btn11.setBackground(Color.gray);
-                 break;
+                btn11.setBackground(Color.gray);
+                break;
             case 12:
-                 btn12.setBackground(Color.gray);
-                 break;
+                btn12.setBackground(Color.gray);
+                break;
             case 13:
-                 btn13.setBackground(Color.gray);
-                 break;
+                btn13.setBackground(Color.gray);
+                break;
             case 14:
-                 btn14.setBackground(Color.gray);
-                 break;
+                btn14.setBackground(Color.gray);
+                break;
             case 15:
-                 btn15.setBackground(Color.gray);
-                 break;
+                btn15.setBackground(Color.gray);
+                break;
             case 16:
-                 btn16.setBackground(Color.gray);
-                 break;
+                btn16.setBackground(Color.gray);
+                break;
             case 17:
-                 btn17.setBackground(Color.gray);
-                 break;
+                btn17.setBackground(Color.gray);
+                break;
             case 18:
-                 btn18.setBackground(Color.gray);
-                 break;
+                btn18.setBackground(Color.gray);
+                break;
             case 19:
-                 btn19.setBackground(Color.gray);
-                 break;
+                btn19.setBackground(Color.gray);
+                break;
             case 20:
-                 btn20.setBackground(Color.gray);
-                 break;
-                 
+                btn20.setBackground(Color.gray);
+                break;
+
             default:
                 break;
         }
     }
+    boolean daThemThanhCong = false;
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
         int soluong = Integer.parseInt(txtSoLuong.getValue().toString());
-        String masp=txtDangChon.getText();
-        if (ban<1)
+        String masp = txtDangChon.getText();
+        if (ban < 1)
             JOptionPane.showMessageDialog(this, "Vui lòng chọn bàn", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        else
-        if (masp.isEmpty())
+        else if (masp.isEmpty())
             JOptionPane.showMessageDialog(this, "Vui lòng chọn sản phẩm", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        else    
-        if (soluong<1)
+        else if (soluong < 1)
             JOptionPane.showMessageDialog(this, "Số lượng không hợp lệ", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        else{
-            
-            
+        else {
+
             try {
-                 Class.forName("com.mysql.cj.jdbc.Driver");
-            String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-                String sql = "select * from product where idproduct=?" ;
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String Url = "jdbc:mysql://localhost/coffee";
+                String user = "root";
+                String pass = "Nqv@762003";
+                Connection conn = DriverManager.getConnection(Url, user, pass);
+                String sql = "select * from product where idproduct=?";
                 PreparedStatement st = conn.prepareStatement(sql);
-                st.setString(1,masp);
+                st.setString(1, masp);
                 ResultSet rs = st.executeQuery();
-                    if(rs.next()){
+                if (rs.next()) {
 
-                        sql="INSERT INTO temporary VALUES(?,?,?,?,?,?,?)";
-                        st = conn.prepareStatement(sql);
-                        st.setInt(1, ban);
+                    sql = "INSERT INTO temporary VALUES(?,?,?,?,?,?,?)";
+                    st = conn.prepareStatement(sql);
+                    st.setInt(1, ban);
 
-                        st.setString(2, masp);
-                        st.setString(3, rs.getString(2));
-                        st.setInt(4, rs.getInt(3));
-                        st.setString(5, rs.getString(4));
-                        st.setInt(6, rs.getInt(5));
-                        st.setInt(7, soluong);
-                        int sodong=st.executeUpdate();
-                        
-                    }
+                    st.setString(2, masp);
+                    st.setString(3, rs.getString(2));
+                    st.setInt(4, rs.getInt(3));
+                    st.setString(5, rs.getString(4));
+                    st.setInt(6, rs.getInt(5));
+                    st.setInt(7, soluong);
+                    int sodong = st.executeUpdate();
+                    daThemThanhCong = true;
+                    JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                }
                 txtDangChon.setText("");
                 txtSoLuong.setValue(1);
-                banDaChon[ban]=1;
+                banDaChon[ban] = 1;
                 toMauBan(ban);
                 renderToTableTTHD();
                 rs.close();
                 st.close();
                 conn.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Đã xảy ra lỗi", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
@@ -1411,45 +1418,43 @@ public class Thungan extends javax.swing.JFrame {
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-        ban=2;
-        lblBan.setText("TABLE "+ban);
+        ban = 2;
+        lblBan.setText("Table : " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        int row =tblTTHD.getSelectedRow();
-        if (row>=0){
-            String tensp = tblTTHD.getValueAt(row,0).toString();
-            int soluong = Integer.parseInt(tblTTHD.getValueAt(row,3).toString());
-            int giasp = Integer.parseInt(tblTTHD.getValueAt(row,1).toString());
-            String donvisp = tblTTHD.getValueAt(row,2).toString();
-            
-            
-            
-            
+        int row = tblTTHD.getSelectedRow();
+        if (row >= 0) {
+            String tensp = tblTTHD.getValueAt(row, 0).toString();
+            int soluong = Integer.parseInt(tblTTHD.getValueAt(row, 3).toString());
+            int giasp = Integer.parseInt(tblTTHD.getValueAt(row, 1).toString());
+            String donvisp = tblTTHD.getValueAt(row, 2).toString();
+
             try {
-                 Class.forName("com.mysql.cj.jdbc.Driver");
-            String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-                String sql = "DELETE TOP(1)\n" +
-                             "FROM temporary\n" +
-                             "WHERE name=? AND quantity=? AND price=? AND unit=?" ;
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String Url = "jdbc:mysql://localhost/coffee";
+                String user = "root";
+                String pass = "Nqv@762003";
+                Connection conn = DriverManager.getConnection(Url, user, pass);
+                String sql = "DELETE FROM temporary WHERE name=? AND quantity=? AND price=? AND unit=?";
                 PreparedStatement st = conn.prepareStatement(sql);
                 st.setString(1, tensp);
                 st.setInt(3, giasp);
                 st.setString(4, donvisp);
                 st.setInt(2, soluong);
-                
-                int sodong=st.executeUpdate();
-                renderToTableTTHD();
-                txtDangChon.setText("");
-                txtSoLuong.setValue(1);
-                if (tblTTHD.getRowCount()==0){
-                    banDaChon[ban]=0;
-                    xoaMauBan(ban);
+
+                int sodong = st.executeUpdate();
+                if (sodong > 0) {
+                    renderToTableTTHD();
+                    txtDangChon.setText("");
+                    txtSoLuong.setValue(1);
+                    if (tblTTHD.getRowCount() == 0) {
+                        banDaChon[ban] = 0;
+                        xoaMauBan(ban);
+                    }
+                    JOptionPane.showMessageDialog(this, "Đã xóa thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                 }
                 st.close();
                 conn.close();
@@ -1462,117 +1467,117 @@ public class Thungan extends javax.swing.JFrame {
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-        ban=3;
-        lblBan.setText("TABLE "+ban);
+        ban = 3;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        ban=7;
-        lblBan.setText("TABLE "+ban);
+        ban = 7;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();        // TODO add your handling code here:
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        ban=8;
-        lblBan.setText("TABLE "+ban);
+        ban = 8;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        ban=9;
-        lblBan.setText("TABLE "+ban);
+        ban = 9;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
         // TODO add your handling code here:
-        ban=10;
-        lblBan.setText("TABLE "+ban);
+        ban = 10;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn10ActionPerformed
 
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         // TODO add your handling code here:
-        ban=11;
-        lblBan.setText("TABLE "+ban);
+        ban = 11;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
-        ban=12;
-        lblBan.setText("TABLE "+ban);
+        ban = 12;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
         // TODO add your handling code here:
-        ban=13;
-        lblBan.setText("TABLE "+ban);
+        ban = 13;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn13ActionPerformed
 
     private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
-        ban=14;
-        lblBan.setText("TABLE "+ban);
+        ban = 14;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn14ActionPerformed
 
     private void btn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn15ActionPerformed
-        ban=15;
-        lblBan.setText("TABLE "+ban);
+        ban = 15;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn15ActionPerformed
 
     private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
-        ban=16;
-        lblBan.setText("TABLE "+ban);
+        ban = 16;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn16ActionPerformed
 
     private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
-        ban=17;
-        lblBan.setText("TABLE "+ban);
+        ban = 17;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn17ActionPerformed
 
     private void btn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn18ActionPerformed
-        ban=18;
-        lblBan.setText("TABLE "+ban);
+        ban = 18;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn18ActionPerformed
 
     private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
-        ban=19;
-        lblBan.setText("TABLE "+ban);
+        ban = 19;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn19ActionPerformed
 
     private void btn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20ActionPerformed
-        ban=20;
-        lblBan.setText("TABLE "+ban);
+        ban = 20;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();// TODO add your handling code here:
     }//GEN-LAST:event_btn20ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-         ban=4;
-        lblBan.setText("TABLE "+ban);
+        ban = 4;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
-        
+
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-          ban=5;
-        lblBan.setText("TABLE "+ban);
+        ban = 5;
+        lblBan.setText("TABLE " + ban);
         renderToTableTTHD();
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int yes= JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn Đăng xuất không?", "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
-        if (yes==0){
+        int yes = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn Đăng xuất không?", "THÔNG BÁO", JOptionPane.YES_NO_OPTION);
+        if (yes == 0) {
             this.dispose();
             LoginFrame dn = new LoginFrame();
             dn.setVisible(true);
@@ -1581,49 +1586,48 @@ public class Thungan extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        String pw="";
+        String pw = "";
         try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-            String sql = "select password from user WHERE account=?" ;
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
+            String sql = "select password from user WHERE account=?";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1,user);
+            st.setString(1, user);
             ResultSet rs = st.executeQuery();
-            if (rs.next())
-            pw = rs.getString(1);
+            if (rs.next()) {
+                pw = rs.getString(1);
+            }
             rs.close();
             st.close();
             conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(!pw.equals(txtMatKhauCu.getText()))
-        txtMKC.setText("SAI MẬT KHẨU!");
-        else{
+        if (!pw.equals(txtMatKhauCu.getText()))
+            txtMKC.setText("SAI MẬT KHẨU!");
+        else {
             txtMKC.setText(" ");
-            if (txtMatKhauMoi.getText().trim().isEmpty()){
+            if (txtMatKhauMoi.getText().trim().isEmpty()) {
                 txtMKM1.setText("KHÔNG ĐƯỢC ĐỂ TRỐNG!");
-            }else
-            if(!txtMatKhauMoi.getText().equals(txtMatKhauMoi2.getText())){
+            } else if (!txtMatKhauMoi.getText().equals(txtMatKhauMoi2.getText())) {
                 txtMKM.setText("KHÔNG KHỚP!");
                 txtMKM1.setText(" ");
-            }
-            else {
+            } else {
 
                 txtMKM.setText(" ");
                 try {
-                     Class.forName("com.mysql.cj.jdbc.Driver");
-            String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-                    String sql = "UPDATE user SET password=? WHERE account=?" ;
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    String Url = "jdbc:mysql://localhost/coffee";
+                    String user = "root";
+                    String pass = "Nqv@762003";
+                    Connection conn = DriverManager.getConnection(Url, user, pass);
+                    String sql = "UPDATE user SET password=? WHERE account=?";
                     PreparedStatement st = conn.prepareStatement(sql);
-                    st.setString(1,txtMatKhauMoi.getText());
-                    st.setString(2,user);
+                    st.setString(1, txtMatKhauMoi.getText());
+                    st.setString(2, user);
                     int dong = st.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Thành công!");
                     txtMatKhauCu.setText("");
@@ -1652,54 +1656,54 @@ public class Thungan extends javax.swing.JFrame {
         dlgDMK.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    
-    
-    public String layNgay(){
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date=new java.sql.Date(millis); 
-            String s = date.toString().trim();
-          
-             String[] parts = s.split("-");
-             String nam = parts[0]; 
-             String thang = parts[1];
-             String ngay = parts[2];  
-             return ngay+"-"+thang+"-"+nam;
+    public String layNgay() {
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        String s = date.toString().trim();
+
+        String[] parts = s.split("-");
+        String nam = parts[0];
+        String thang = parts[1];
+        String ngay = parts[2];
+        return ngay + "-" + thang + "-" + nam;
     }
-    
-    private int sohd,tienan=0,tiennuoc=0;
-    
-    private void renderToTableThanhToan(){
+
+    private int sohd, tienan = 0, tiennuoc = 0;
+
+    private void renderToTableThanhToan() {
         tblModelHD.setRowCount(0);
-        tienan=0;
-        tiennuoc=0;
+        tienan = 0;
+        tiennuoc = 0;
         try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
             String sql = "select max(idreceipt) from receipt";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             rs = st.executeQuery();
-                if (rs.next()){
-                   sohd=rs.getInt(1)+1;
-                }
-                
-            sql = "select * from temporary where tablenumber=? " ;
+            if (rs.next()) {
+                sohd = rs.getInt(1) + 1;
+            }
+
+            sql = "select * from temporary where tablenumber=? ";
             st = conn.prepareStatement(sql);
             st.setInt(1, ban);
             rs = st.executeQuery();
-            while (rs.next()){
-                    if (rs.getInt(6)==1){
-                        tiennuoc+=rs.getInt(4)*rs.getInt(7);
-                    }else tienan+=rs.getInt(4)*rs.getInt(7);
-                    
-                    Object[] row = new Object[]{
-                        rs.getString(3), formatter.format(rs.getInt(4)),rs.getString(5) ,
-                        rs.getInt(7),formatter.format(rs.getInt(4)*rs.getInt(7))+" VNĐ"
-                    };
-                    tblModelHD.addRow(row);
+            while (rs.next()) {
+                if (rs.getInt(6) == 1) {
+                    tiennuoc += rs.getInt(4) * rs.getInt(7);
+                } else {
+                    tienan += rs.getInt(4) * rs.getInt(7);
+                }
+
+                Object[] row = new Object[]{
+                    rs.getString(3), formatter.format(rs.getInt(4)), rs.getString(5),
+                    rs.getInt(7), formatter.format(rs.getInt(4) * rs.getInt(7)) + " VNĐ"
+                };
+                tblModelHD.addRow(row);
             }
             rs.close();
             st.close();
@@ -1711,32 +1715,35 @@ public class Thungan extends javax.swing.JFrame {
     }
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanActionPerformed
         // TODO add your handling code here:
+        if(daThemThanhCong){
         int soluong = Integer.parseInt(txtSoLuong.getValue().toString());
-        
-        String masp=txtDangChon.getText();
-        if (ban<1)
+
+        String masp = txtDangChon.getText();
+        if (ban < 1)
             JOptionPane.showMessageDialog(this, "Vui lòng chọn bàn", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        else
-        if (tblTTHD.getRowCount()<1)
+        else if (tblTTHD.getRowCount() < 1)
             JOptionPane.showMessageDialog(this, "Chưa gọi món", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
-        else{   
-                initTableHD();
-                renderToTableThanhToan();
-                lblSoBan.setText(ban+"");
-                lblSoHoaDon.setText(sohd+"");
-                lblNhanVienLap.setText(hoten);
-                lblThoiGianLap.setText(lblClock.getText().trim()+"  Ngày "+layNgay());
-                lblThanhTien.setText(formatter.format((tienan+tiennuoc))+" VNĐ");
-                
-                
-                dlgThanhToan.setVisible(true);
-                dlgThanhToan.setLocationRelativeTo(null);  
+        else {
+            initTableHD();
+            renderToTableThanhToan();
+            lblSoBan.setText(ban + "");
+            lblSoHoaDon.setText(sohd + "");
+            lblNhanVienLap.setText(hoten);
+            lblThoiGianLap.setText(lblClock.getText().trim() + "  Ngày " + layNgay());
+            lblThanhTien.setText(formatter.format((tienan + tiennuoc)) + " VNĐ");
+
+            dlgThanhToan.setVisible(true);
+            dlgThanhToan.setLocationRelativeTo(null);
         }
+        }else{
+            JOptionPane.showMessageDialog(this, "Vui lòng thêm sản phẩm trước khi thanh toán!", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
     private void tblSPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblSPKeyReleased
         // TODO add your handling code here:
-        dongDangChon=tblSP.getSelectedRow();
+        dongDangChon = tblSP.getSelectedRow();
         txtDangChon.setText(tblSP.getValueAt(dongDangChon, 0).toString());
         btnXoa.setEnabled(false);
         btnThem.setEnabled(true);
@@ -1744,12 +1751,12 @@ public class Thungan extends javax.swing.JFrame {
 
     private void tblTTHDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTTHDKeyReleased
         // TODO add your handling code here:
-        int row=tblTTHD.getSelectedRow();
-        String tensp = tblTTHD.getValueAt(row,0).toString();
-        int soluong = Integer.parseInt(tblTTHD.getValueAt(row,3).toString());
+        int row = tblTTHD.getSelectedRow();
+        String tensp = tblTTHD.getValueAt(row, 0).toString();
+        int soluong = Integer.parseInt(tblTTHD.getValueAt(row, 3).toString());
         txtDangChon.setText(tensp);
         txtSoLuong.setValue(soluong);
-        
+
         btnXoa.setEnabled(true);
         btnThem.setEnabled(false);
     }//GEN-LAST:event_tblTTHDKeyReleased
@@ -1764,64 +1771,58 @@ public class Thungan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoAnActionPerformed
     //Đổ data vô Bảng HoaDon
-    public String layNgayHD(){
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date=new java.sql.Date(millis); 
-            String s = date.toString().trim();
-          
-             String[] parts = s.split("-");
-             String nam = parts[0]; 
-             String thang = parts[1];
-             String ngay = parts[2];  
-             return thang+"-"+ngay+"-"+nam;
+    public String layNgayHD() {
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        String s = date.toString().trim();
+
+        String[] parts = s.split("-");
+        String nam = parts[0];
+        String thang = parts[1];
+        String ngay = parts[2];
+        return thang + "-" + ngay + "-" + nam;
     }
-    
-    private void ThanhToan(){
-        
+
+    private void ThanhToan() {
+
         try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
-                String sql = "insert into receipt values(?,?,?,?,?)" ;
-                PreparedStatement st = conn.prepareStatement(sql);
-                
-                st.setInt(1, sohd);
-                st.setString(2, hoten);
-                st.setString(3,lblClock.getText().trim()+layNgayHD());
-                st.setInt(4, tiennuoc);
-                st.setInt(5, tienan);
-                int soDong = st.executeUpdate();
-                if (soDong>0)
-                    JOptionPane.showMessageDialog(this, "Đã thanh toán bàn số "+ban,"THÔNG BÁO",JOptionPane.CLOSED_OPTION);
-                
-                //Xóa Tạm tính hóa đơn
-                
-                
-                
-                sql = "delete from temporary where tablenumber = ?";
-                banDaChon[ban]=0;
-                xoaMauBan(ban);
-                st = conn.prepareStatement(sql);
-                st.setInt(1,ban);
-                soDong = st.executeUpdate();
-                renderToTableTTHD();
-                st.close();
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Đã xảy ra lỗi", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+            String user = "root";
+            String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url, user, pass);
+            String sql = "insert into receipt values(?,?,?,?,?)";
+            PreparedStatement st = conn.prepareStatement(sql);
+
+            st.setInt(1, sohd);
+            st.setString(2, hoten);
+            st.setString(3, lblClock.getText().trim() + layNgayHD());
+            st.setInt(4, tiennuoc);
+            st.setInt(5, tienan);
+            int soDong = st.executeUpdate();
+            if (soDong > 0) {
+                JOptionPane.showMessageDialog(this, "Đã thanh toán bàn số " + ban, "THÔNG BÁO", JOptionPane.CLOSED_OPTION);
             }
+
+            //Xóa Tạm tính hóa đơn
+            sql = "delete from temporary where tablenumber = ?";
+            banDaChon[ban] = 0;
+            xoaMauBan(ban);
+            st = conn.prepareStatement(sql);
+            st.setInt(1, ban);
+            soDong = st.executeUpdate();
+            renderToTableTTHD();
+            st.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Đã xảy ra lỗi", "CẢNH BÁO", JOptionPane.ERROR_MESSAGE);
+        }
     }
-   
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
