@@ -20,15 +20,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Truong
  */
-public class Admin extends javax.swing.JFrame {
+public class AdminFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form Admin
+     * Creates new form AdminFrame
      */
     private String user;
     private String hoten;
     DecimalFormat formatter = new DecimalFormat("###,###,###"); 
-    public Admin(String user, String hoten) {
+    public AdminFrame(String user, String hoten) {
         initComponents();
         this.user = user;
         txtXinChao.setText("Chào "+hoten);
@@ -44,7 +44,7 @@ public class Admin extends javax.swing.JFrame {
         initTableTK();
     }
     
-    public Admin() {
+    public AdminFrame() {
         initComponents();
         setLocationRelativeTo(null);
         initTable();

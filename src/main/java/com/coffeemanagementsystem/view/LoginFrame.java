@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Admin
+ * @author AdminFrame
  */
 public class LoginFrame extends javax.swing.JFrame {
 
@@ -155,6 +155,9 @@ public class LoginFrame extends javax.swing.JFrame {
     private void txtTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaiKhoanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTaiKhoanActionPerformed
+    public String getTaiKhoan() {
+    return txtTaiKhoan.getText();
+}
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -175,13 +178,13 @@ public class LoginFrame extends javax.swing.JFrame {
                 if(rs.getString(1).equals(tk)&&rs.getString(2).equals(pw))
                 { loai=rs.getInt(6);
                     if(loai==0) {
-                        Admin ad = new Admin(rs.getString(1),rs.getString(3));
+                        AdminFrame ad = new AdminFrame(rs.getString(1),rs.getString(3));
                         ad.setVisible(true);
                         this.dispose();
                     }
 
                     if(loai==1) {
-                        Thungan tn = new Thungan(rs.getString(1),rs.getString(3));
+                        CashierFrame tn = new CashierFrame(rs.getString(1),rs.getString(3));
                         tn.setVisible(true);
                         this.dispose();
                     }

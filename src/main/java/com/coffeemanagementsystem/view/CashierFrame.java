@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Quang Vinh B2110111
  */
-public class Thungan extends javax.swing.JFrame {
+public class CashierFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
@@ -28,7 +28,7 @@ public class Thungan extends javax.swing.JFrame {
     private String user, hoten;
     DecimalFormat formatter = new DecimalFormat("###,###,###");
 
-    public Thungan(String user, String hoten) {
+    public CashierFrame(String user, String hoten) {
         this.user = user;
         this.hoten = hoten;
         initComponents();
@@ -44,7 +44,7 @@ public class Thungan extends javax.swing.JFrame {
         toMau();
     }
 
-    public Thungan() {
+    public CashierFrame() {
         initComponents();
         setLocationRelativeTo(null);
         initTableSP();
@@ -212,7 +212,7 @@ public class Thungan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtChao = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        changePassBtn = new javax.swing.JButton();
         lblClock = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -843,13 +843,13 @@ public class Thungan extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 12));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setText("Change password");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        changePassBtn.setBackground(new java.awt.Color(255, 204, 12));
+        changePassBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        changePassBtn.setText("Change password");
+        changePassBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        changePassBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                changePassBtnActionPerformed(evt);
             }
         });
 
@@ -865,7 +865,7 @@ public class Thungan extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(changePassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtChao, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblClock, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -880,7 +880,7 @@ public class Thungan extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(changePassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
 
@@ -1647,14 +1647,15 @@ public class Thungan extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        dlgDMK.setVisible(false);
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void changePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassBtnActionPerformed
         // TODO add your handling code here:
-        dlgDMK.setVisible(true);
-        dlgDMK.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        ChangePasswordFrame changePasswordFrame = new ChangePasswordFrame();
+        changePasswordFrame.setVisible(true);
+        
+    }//GEN-LAST:event_changePassBtnActionPerformed
 
     public String layNgay() {
         long millis = System.currentTimeMillis();
@@ -1849,12 +1850,12 @@ public class Thungan extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton changePassBtn;
     private javax.swing.JDialog dlgDMK;
     private javax.swing.JDialog dlgThanhToan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
