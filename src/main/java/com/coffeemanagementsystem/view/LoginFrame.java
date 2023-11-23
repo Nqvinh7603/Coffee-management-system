@@ -167,9 +167,9 @@ public class LoginFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,user,pass);
+            Connection conn = DriverManager.getConnection(Url,dbuser,pass);
             String sql = "select * from user" ;
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -192,6 +192,7 @@ public class LoginFrame extends javax.swing.JFrame {
                     if(loai==2) {
                         JOptionPane.showMessageDialog(this, "Người dùng này không thể đăng nhập vào hệ thống","CẢNH BÁO",JOptionPane.ERROR_MESSAGE);
                     }
+               ChangePasswordFrame changePasswordFrame = new ChangePasswordFrame(rs.getString(1));
                 }
             }
             if(loai==-1)

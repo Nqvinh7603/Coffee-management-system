@@ -15,11 +15,12 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class ChangePasswordFrame extends javax.swing.JFrame {
-    
+    private String user;
     /**
      * Creates new form ChangePasswordFrame
      */
-    public ChangePasswordFrame() {
+    public ChangePasswordFrame(String user) {
+        this.user = user;
         initComponents();
         setLocationRelativeTo(null);
         CashierFrame cashierFrame = new CashierFrame();
@@ -204,85 +205,25 @@ public class ChangePasswordFrame extends javax.swing.JFrame {
     private void txtMatKhauMoi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhauMoi2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMatKhauMoi2ActionPerformed
-private boolean checkCurrentPassword(String currentPassword) {
-    boolean passwordMatch = false;
-    String dbPassword = "";
-    LoginFrame loginFrame = new LoginFrame();
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-        Connection conn = DriverManager.getConnection(Url, user, pass);
 
-        String sql = "SELECT password FROM user WHERE account=?";
-        PreparedStatement st = conn.prepareStatement(sql);
-        st.setString(1, loginFrame.getTaiKhoan());
-        ResultSet rs = st.executeQuery();
 
-        if (rs.next()) {
-            dbPassword = rs.getString("password").trim(); // Loại bỏ khoảng trắng không cần thiết
-            passwordMatch = dbPassword.equalsIgnoreCase(currentPassword.trim()); // So sánh ở dạng chữ thường
-        }
 
-        rs.close();
-        st.close();
-        conn.close();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
-    return passwordMatch;
-}
-
-private void updatePassword(String newPassword) {
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String Url = "jdbc:mysql://localhost/coffee";
-        String user = "root";
-        String pass = "Nqv@762003";
-        Connection conn = DriverManager.getConnection(Url, user, pass);
-
-        String sql = "UPDATE user SET password=? WHERE account=?";
-        PreparedStatement st = conn.prepareStatement(sql);
-        st.setString(1, newPassword);
-        st.setString(2, user);
-
-        int rowsAffected = st.executeUpdate();
-
-        if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(this, "Thành công!");
-            // Reset các trường nhập liệu và đóng dialog
-            txtMatKhauCu.setText("");
-            txtMatKhauMoi.setText("");
-            txtMatKhauMoi2.setText("");
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Không thể cập nhật mật khẩu.");
-        }
-
-        st.close();
-        conn.close();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        LoginFrame loginFrame = new LoginFrame(); 
+        
        String pw = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select password from user WHERE account=?";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, loginFrame.getTaiKhoan() );
+            st.setString(1, user );
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                pw = rs.getString(2);
+                pw = rs.getString(1);
             }
             rs.close();
             st.close();
@@ -305,13 +246,13 @@ private void updatePassword(String newPassword) {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     String Url = "jdbc:mysql://localhost/coffee";
-                    String user = "root";
+                    String dbuser = "root";
                     String pass = "Nqv@762003";
-                    Connection conn = DriverManager.getConnection(Url, user, pass);
+                    Connection conn = DriverManager.getConnection(Url, dbuser, pass);
                     String sql = "UPDATE user SET password=? WHERE account=?";
                     PreparedStatement st = conn.prepareStatement(sql);
                     st.setString(1, txtMatKhauMoi.getText());
-                    st.setString(2, loginFrame.getTaiKhoan());
+                    st.setString(2, user);
                     int dong = st.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Thành công!");
                     txtMatKhauCu.setText("");

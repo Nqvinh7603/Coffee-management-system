@@ -89,9 +89,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select * from temporary";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -121,9 +121,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select * from product";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -1194,9 +1194,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select * from temporary";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -1377,9 +1377,9 @@ public class CashierFrame extends javax.swing.JFrame {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String Url = "jdbc:mysql://localhost/coffee";
-                String user = "root";
+                String dbuser = "root";
                 String pass = "Nqv@762003";
-                Connection conn = DriverManager.getConnection(Url, user, pass);
+                Connection conn = DriverManager.getConnection(Url, dbuser, pass);
                 String sql = "select * from product where idproduct=?";
                 PreparedStatement st = conn.prepareStatement(sql);
                 st.setString(1, masp);
@@ -1435,9 +1435,9 @@ public class CashierFrame extends javax.swing.JFrame {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String Url = "jdbc:mysql://localhost/coffee";
-                String user = "root";
+                String dbuser = "root";
                 String pass = "Nqv@762003";
-                Connection conn = DriverManager.getConnection(Url, user, pass);
+                Connection conn = DriverManager.getConnection(Url, dbuser, pass);
                 String sql = "DELETE FROM temporary WHERE name=? AND quantity=? AND price=? AND unit=?";
                 PreparedStatement st = conn.prepareStatement(sql);
                 st.setString(1, tensp);
@@ -1590,9 +1590,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select password from user WHERE account=?";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, user);
@@ -1621,9 +1621,9 @@ public class CashierFrame extends javax.swing.JFrame {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     String Url = "jdbc:mysql://localhost/coffee";
-                    String user = "root";
+                    String dbuser = "root";
                     String pass = "Nqv@762003";
-                    Connection conn = DriverManager.getConnection(Url, user, pass);
+                    Connection conn = DriverManager.getConnection(Url, dbuser, pass);
                     String sql = "UPDATE user SET password=? WHERE account=?";
                     PreparedStatement st = conn.prepareStatement(sql);
                     st.setString(1, txtMatKhauMoi.getText());
@@ -1647,13 +1647,15 @@ public class CashierFrame extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        
+        dlgDMK.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void changePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassBtnActionPerformed
         // TODO add your handling code here:
-        ChangePasswordFrame changePasswordFrame = new ChangePasswordFrame();
+        ChangePasswordFrame changePasswordFrame = new ChangePasswordFrame(user);
         changePasswordFrame.setVisible(true);
+//dlgDMK.setVisible(true);
+//        dlgDMK.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_changePassBtnActionPerformed
 
@@ -1678,9 +1680,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "select max(idreceipt) from receipt";
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -1789,9 +1791,9 @@ public class CashierFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String Url = "jdbc:mysql://localhost/coffee";
-            String user = "root";
+            String dbuser = "root";
             String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url, user, pass);
+            Connection conn = DriverManager.getConnection(Url, dbuser, pass);
             String sql = "insert into receipt values(?,?,?,?,?)";
             PreparedStatement st = conn.prepareStatement(sql);
 
