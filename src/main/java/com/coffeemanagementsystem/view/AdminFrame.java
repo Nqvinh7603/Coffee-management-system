@@ -879,11 +879,11 @@ public class AdminFrame extends javax.swing.JFrame {
 
         cbxTuNam.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuNam.setForeground(new java.awt.Color(0, 0, 255));
-        cbxTuNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", "2024", "2025" }));
+        cbxTuNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027" }));
 
         cbxDenNam.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenNam.setForeground(new java.awt.Color(0, 0, 255));
-        cbxDenNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", "2024", "2025" }));
+        cbxDenNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027" }));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/coffeemanagementsystem/images/kinhlup.jpg"))); // NOI18N
@@ -1662,107 +1662,66 @@ public class AdminFrame extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-//         String tuNgay = cbxTuNam.getSelectedItem() + "-" + cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem();
-//    String denNgay = cbxDenNam.getSelectedItem() + "-" + cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + " 23:59:00";
-        // Chuyển đổi ngày tháng từ combobox về định dạng chuẩn
-        SimpleDateFormat inputFormat = new SimpleDateFormat("hh:mm:ss aMM-dd-yyyy");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        String tuNgayStr = cbxTuNam.getSelectedItem() + "-" + cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem();
-        String denNgayStr = cbxDenNam.getSelectedItem() + "-" + cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + " 23:59:00";
-
-        String formattedTuNgay = "";
-        String formattedDenNgay = "";
-
-        try {
-            // Chuyển đổi từ chuỗi không chuẩn sang định dạng chuẩn
-            Date tuNgay = inputFormat.parse("12:00:00 SA" + tuNgayStr);
-            Date denNgay = inputFormat.parse("11:59:59 SA" + denNgayStr);
-
-            formattedTuNgay = outputFormat.format(tuNgay);
-            formattedDenNgay = outputFormat.format(denNgay);
-        } catch (ParseException e) {
-            // Xử lý ngoại lệ nếu có lỗi khi chuyển đổi định dạng
-            e.printStackTrace();
-        }
-
-        long doanhthuan = 0, doanhthuuong = 0, doanhthu = 0;
-
-        try {
-
-            tblModelThongKe.setRowCount(0);
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String Url = "jdbc:mysql://localhost/coffee";
-            String dbuser = "root";
-            String pass = "Nqv@762003";
-            try (Connection conn = DriverManager.getConnection(Url, dbuser, pass)) {
-                String sql = "SELECT * FROM receipt WHERE datetime >= ? AND datetime <= ?";
-                try (PreparedStatement st = conn.prepareStatement(sql)) {
-                    st.setString(1, formattedTuNgay);
-                    st.setString(2, formattedDenNgay);
-                    try (ResultSet rs = st.executeQuery()) {
-                        while (rs.next()) {
-                            Object[] row = new Object[]{
-                                layGio(rs.getString(3)), rs.getInt(1), rs.getString(2), formatter.format(rs.getInt(5)),
-                                formatter.format(rs.getInt(4))
-                            };
-                            doanhthuan += rs.getInt(5);
-                            doanhthuuong += rs.getInt(4);
-                            tblModelThongKe.addRow(row);
-                        }
-                        txtDoanhThuAn.setText(formatter.format(doanhthuan) + " VNĐ");
-                        txtDoanhThuUong.setText(formatter.format(doanhthuuong) + " VNĐ");
-                        doanhthu = doanhthuan + doanhthuuong;
-                        txtDoanhThu.setText(formatter.format(doanhthu) + " VNĐ");
-                    }
-                }
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "LỖI: " + e.getMessage(), "LỖI", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Có lỗi xảy ra", "LỖI", JOptionPane.ERROR_MESSAGE);
-        }
 //        String tuNgay = cbxTuThang.getSelectedItem()+"-"+cbxTuNgay.getSelectedItem()+"-"+cbxTuNam.getSelectedItem();
 //        String denNgay = cbxDenThang.getSelectedItem()+"-"+cbxDenNgay.getSelectedItem()+"-"+cbxDenNam.getSelectedItem()+
 //                " 23:59:00";
-//        
-//        long doanhthuan=0, doanhthuuong=0, doanhthu=0;
-//       
-//        
-//        try {
-//            tblModelThongKe.setRowCount(0);
-//             Class.forName("com.mysql.cj.jdbc.Driver");
-//            String Url = "jdbc:mysql://localhost/coffee";
-//        String dbuser = "root";
-//        String pass = "Nqv@762003";
-//            Connection conn = DriverManager.getConnection(Url,dbuser,pass);
-//            String sql = "select * from receipt where datetime>=? and datetime<=?" ;
-//            PreparedStatement st = conn.prepareStatement(sql);
-//            st.setString(1,tuNgay);
-//            st.setString(2,denNgay);
-//            ResultSet rs = st.executeQuery();
-//            while (rs.next()){
-//                Object[] row = new Object[]{
-//                    layGio(rs.getString(3)), rs.getInt(1), rs.getString(2),formatter.format(rs.getInt(5)) ,
-//                    formatter.format(rs.getInt(4))
-//                };
-//                doanhthuan+=rs.getInt(5);
-//                doanhthuuong+=rs.getInt(4);
-//            tblModelThongKe.addRow(row);
-//            }
-//            tblModelThongKe.fireTableDataChanged();
-//            txtDoanhThuAn.setText(formatter.format(doanhthuan)+" VNĐ");
-//            txtDoanhThuUong.setText(formatter.format(doanhthuuong)+" VNĐ");
-//            doanhthu=doanhthuan+doanhthuuong;
-//            txtDoanhThu.setText(formatter.format(doanhthu)+" VNĐ");
-//            rs.close();
-//            st.close();
-//            conn.close();
-//        } catch (Exception e) {
-//           
-//            JOptionPane.showMessageDialog(this,"Ngày không hợp lệ","LỖI",JOptionPane.ERROR_MESSAGE);
-//        }
+        String tuNgayStr = cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem() + "-" + cbxTuNam.getSelectedItem();
+String denNgayStr = cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + "-" + cbxDenNam.getSelectedItem() + " 23:59:00";
+
+SimpleDateFormat inputFormat = new SimpleDateFormat("hh:mm:ss aMM-dd-yyyy");
+SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+String formattedTuNgay = "";
+String formattedDenNgay = "";
+
+try {
+    Date tuNgay = inputFormat.parse("12:00:00 SA" + tuNgayStr);
+    Date denNgay = inputFormat.parse("11:59:59 CH" + denNgayStr);
+
+    formattedTuNgay = outputFormat.format(tuNgay);
+    formattedDenNgay = outputFormat.format(denNgay);
+} catch (ParseException e) {
+    e.printStackTrace();
+}
+
+        
+        long doanhthuan=0, doanhthuuong=0, doanhthu=0;
+       
+        
+        try {
+            tblModelThongKe.setRowCount(0);
+             Class.forName("com.mysql.cj.jdbc.Driver");
+            String Url = "jdbc:mysql://localhost/coffee";
+        String dbuser = "root";
+        String pass = "Nqv@762003";
+            Connection conn = DriverManager.getConnection(Url,dbuser,pass);
+            String sql = "select * from receipt where datetime>=? and datetime<=?" ;
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1,formattedTuNgay);
+            st.setString(2,formattedDenNgay);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                Object[] row = new Object[]{
+                    layGio(rs.getString(3)), rs.getInt(1), rs.getString(2),formatter.format(rs.getInt(5)) ,
+                    formatter.format(rs.getInt(4))
+                };
+                doanhthuan+=rs.getInt(5);
+                doanhthuuong+=rs.getInt(4);
+            tblModelThongKe.addRow(row);
+            }
+            tblModelThongKe.fireTableDataChanged();
+            txtDoanhThuAn.setText(formatter.format(doanhthuan)+" VNĐ");
+            txtDoanhThuUong.setText(formatter.format(doanhthuuong)+" VNĐ");
+            doanhthu=doanhthuan+doanhthuuong;
+            txtDoanhThu.setText(formatter.format(doanhthu)+" VNĐ");
+            rs.close();
+            st.close();
+            conn.close();
+        } catch (Exception e) {
+           
+            JOptionPane.showMessageDialog(this,"Ngày không hợp lệ","LỖI",JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
