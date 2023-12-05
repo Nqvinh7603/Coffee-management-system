@@ -6,7 +6,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -1775,15 +1778,29 @@ public class CashierFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoAnActionPerformed
     //Đổ data vô Bảng HoaDon
     public String layNgayHD() {
-        long millis = System.currentTimeMillis();
-        java.sql.Date date = new java.sql.Date(millis);
-        String s = date.toString().trim();
+//        long millis = System.currentTimeMillis();
+//        java.sql.Date date = new java.sql.Date(millis);
+//        String s = date.toString().trim();
+//
+//        String[] parts = s.split("-");
+//        String nam = parts[0];
+//        String thang = parts[1];
+//        String ngay = parts[2];
+//        return thang + "-" + ngay + "-" + nam;
+            long millis = System.currentTimeMillis();
+    java.sql.Timestamp timestamp = new java.sql.Timestamp(millis);
+    
+    DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    
+    try {
+        // Format lại ngày tháng theo định dạng mới
+        String formattedDateTime = outputFormat.format(timestamp);
+        return formattedDateTime;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return ""; // Hoặc xử lý lỗi theo ý của bạn
+    }
 
-        String[] parts = s.split("-");
-        String nam = parts[0];
-        String thang = parts[1];
-        String ngay = parts[2];
-        return thang + "-" + ngay + "-" + nam;
     }
 
     private void ThanhToan() {
@@ -1799,7 +1816,7 @@ public class CashierFrame extends javax.swing.JFrame {
 
             st.setInt(1, sohd);
             st.setString(2, hoten);
-            st.setString(3, lblClock.getText().trim() + layNgayHD());
+            st.setString(3, layNgayHD());
             st.setInt(4, tiennuoc);
             st.setInt(5, tienan);
             int soDong = st.executeUpdate();

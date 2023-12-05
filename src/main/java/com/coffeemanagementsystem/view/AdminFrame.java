@@ -7,9 +7,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -858,24 +862,32 @@ public class AdminFrame extends javax.swing.JFrame {
             new String [] {
                 "Ngày", "Số hóa đơn", "Người lập", "Doanh thu ăn", "Doanh thu uống"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tblThongKe);
 
         cbxTuNgay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuNgay.setForeground(new java.awt.Color(0, 0, 255));
-        cbxTuNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxTuNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         cbxDenNgay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenNgay.setForeground(new java.awt.Color(0, 0, 255));
-        cbxDenNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxDenNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         cbxTuThang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuThang.setForeground(new java.awt.Color(0, 0, 255));
-        cbxTuThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbxTuThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         cbxDenThang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenThang.setForeground(new java.awt.Color(0, 0, 255));
-        cbxDenThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbxDenThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         cbxTuNam.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuNam.setForeground(new java.awt.Color(0, 0, 255));
@@ -1648,81 +1660,87 @@ public class AdminFrame extends javax.swing.JFrame {
         btnSuaSP.setEnabled(true);
         btnXoaSP.setEnabled(true);
     }//GEN-LAST:event_tblSPKeyReleased
+    private String convertDateTime(String inputDateTime) {
+    // Tách giờ phút giây từ chuỗi đầu vào
+    String timePart = inputDateTime.substring(0, 8);
+    String datePart = inputDateTime.substring(9); // Lấy phần ngày tháng năm
 
-    public String layGio(String s) {
-        String[] parts = s.split("-");
-        String nam = parts[0];
-        String thang = parts[1];
-        String ngay = parts[2];
-        String[] partGio = ngay.split(" ");
-        ngay = partGio[0];
-        String[] partPhut = partGio[1].split(":");
-        String gio = partPhut[0] + ":" + partPhut[1];
-        return gio + " " + ngay + "-" + thang + "-" + nam;
+    String[] timeArray = timePart.split(":");
+    int hour = Integer.parseInt(timeArray[0]);
+    int minute = Integer.parseInt(timeArray[1]);
+    int second = Integer.parseInt(timeArray[2]);
+
+    // Kiểm tra CH hoặc SA để xác định AM/PM
+    if (datePart.contains("CH")) {
+        if (hour < 12) {
+            hour += 12;
+        }
+    } else {
+        if (hour == 12) {
+            hour = 0;
+        }
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
 
-//        String tuNgay = cbxTuThang.getSelectedItem()+"-"+cbxTuNgay.getSelectedItem()+"-"+cbxTuNam.getSelectedItem();
-//        String denNgay = cbxDenThang.getSelectedItem()+"-"+cbxDenNgay.getSelectedItem()+"-"+cbxDenNam.getSelectedItem()+
-//                " 23:59:00";
-        String tuNgayStr = cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem() + "-" + cbxTuNam.getSelectedItem();
-String denNgayStr = cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + "-" + cbxDenNam.getSelectedItem() + " 23:59:00";
+    // Tách phần ngày tháng năm
+    int year = Integer.parseInt(datePart.substring(6));
+    int month = Integer.parseInt(datePart.substring(3, 5));
+    int day = Integer.parseInt(datePart.substring(0, 2));
 
-SimpleDateFormat inputFormat = new SimpleDateFormat("hh:mm:ss aMM-dd-yyyy");
-SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    // Tạo đối tượng LocalDateTime
+    LocalDateTime localDateTime = LocalDateTime.of(year, month, day, hour, minute, second);
 
-String formattedTuNgay = "";
-String formattedDenNgay = "";
-
-try {
-    Date tuNgay = inputFormat.parse("12:00:00 SA" + tuNgayStr);
-    Date denNgay = inputFormat.parse("11:59:59 CH" + denNgayStr);
-
-    formattedTuNgay = outputFormat.format(tuNgay);
-    formattedDenNgay = outputFormat.format(denNgay);
-} catch (ParseException e) {
-    e.printStackTrace();
+    // Định dạng lại chuỗi theo "yyyy-MM-dd HH:mm:ss"
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    return localDateTime.format(formatter);
 }
 
-        
-        long doanhthuan=0, doanhthuuong=0, doanhthu=0;
-       
-        
-        try {
-            tblModelThongKe.setRowCount(0);
-             Class.forName("com.mysql.cj.jdbc.Driver");
-            String Url = "jdbc:mysql://localhost/coffee";
+
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Timestamp tuNgay = Timestamp.valueOf(convertDateTime(cbxTuNgay.getSelectedItem().toString() + " 00:00:00"));
+        Timestamp denNgay = Timestamp.valueOf(convertDateTime(cbxDenNgay.getSelectedItem().toString() + " 23:59:59"));
+    try {
+        tblModelThongKe.setRowCount(0);
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String Url = "jdbc:mysql://localhost/coffee";
         String dbuser = "root";
         String pass = "Nqv@762003";
-            Connection conn = DriverManager.getConnection(Url,dbuser,pass);
-            String sql = "select * from receipt where datetime>=? and datetime<=?" ;
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1,formattedTuNgay);
-            st.setString(2,formattedDenNgay);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()){
-                Object[] row = new Object[]{
-                    layGio(rs.getString(3)), rs.getInt(1), rs.getString(2),formatter.format(rs.getInt(5)) ,
-                    formatter.format(rs.getInt(4))
-                };
-                doanhthuan+=rs.getInt(5);
-                doanhthuuong+=rs.getInt(4);
+        Connection conn = DriverManager.getConnection(Url, dbuser, pass);
+        
+        // Chuyển đổi định dạng cột datetime từ varchar sang ngày tháng
+        String sql = "SELECT * FROM receipt WHERE datetime >= STR_TO_DATE(?, '%h:%i:%s %p%m-%d-%Y') AND datetime <= STR_TO_DATE(?, '%h:%i:%s %p%m-%d-%Y')";
+        PreparedStatement st = conn.prepareStatement(sql);
+//        st.setString(1, convertDateTime(cbxTuNgay.getSelectedItem().toString()));
+//        st.setString(2, convertDateTime(cbxDenNgay.getSelectedItem().toString() + " 23:59:59"));
+        st.setTimestamp(1, tuNgay);
+        st.setTimestamp(2, denNgay);
+        ResultSet rs = st.executeQuery();
+        long doanhthuan = 0, doanhthuuong = 0;
+
+        while (rs.next()) {
+            Object[] row = new Object[]{
+                rs.getString("datetime"), rs.getInt(1), rs.getString(2), formatter.format(rs.getInt(5)),
+                formatter.format(rs.getInt(4))
+            };
+
+            doanhthuan += rs.getInt(5);
+            doanhthuuong += rs.getInt(4);
+
             tblModelThongKe.addRow(row);
-            }
-            tblModelThongKe.fireTableDataChanged();
-            txtDoanhThuAn.setText(formatter.format(doanhthuan)+" VNĐ");
-            txtDoanhThuUong.setText(formatter.format(doanhthuuong)+" VNĐ");
-            doanhthu=doanhthuan+doanhthuuong;
-            txtDoanhThu.setText(formatter.format(doanhthu)+" VNĐ");
-            rs.close();
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-           
-            JOptionPane.showMessageDialog(this,"Ngày không hợp lệ","LỖI",JOptionPane.ERROR_MESSAGE);
         }
 
+        txtDoanhThuAn.setText(formatter.format(doanhthuan) + " VNĐ");
+        txtDoanhThuUong.setText(formatter.format(doanhthuuong) + " VNĐ");
+        long doanhthu = doanhthuan + doanhthuuong;
+        txtDoanhThu.setText(formatter.format(doanhthu) + " VNĐ");
+
+        rs.close();
+        st.close();
+        conn.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Ngày không hợp lệ", "LỖI", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private DefaultTableModel tblModel;
