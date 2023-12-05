@@ -410,7 +410,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addGap(78, 78, 78))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 570));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 580));
 
         tblMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -864,7 +864,7 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -875,27 +875,33 @@ public class AdminFrame extends javax.swing.JFrame {
 
         cbxTuNgay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuNgay.setForeground(new java.awt.Color(0, 0, 255));
-        cbxTuNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxTuNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxTuNgay.setSelectedIndex(-1);
 
         cbxDenNgay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenNgay.setForeground(new java.awt.Color(0, 0, 255));
-        cbxDenNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxDenNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbxDenNgay.setSelectedIndex(-1);
 
         cbxTuThang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuThang.setForeground(new java.awt.Color(0, 0, 255));
-        cbxTuThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbxTuThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbxTuThang.setSelectedIndex(-1);
 
         cbxDenThang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenThang.setForeground(new java.awt.Color(0, 0, 255));
-        cbxDenThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbxDenThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbxDenThang.setSelectedIndex(-1);
 
         cbxTuNam.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxTuNam.setForeground(new java.awt.Color(0, 0, 255));
         cbxTuNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027" }));
+        cbxTuNam.setSelectedIndex(-1);
 
         cbxDenNam.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbxDenNam.setForeground(new java.awt.Color(0, 0, 255));
         cbxDenNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027" }));
+        cbxDenNam.setSelectedIndex(-1);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/coffeemanagementsystem/images/kinhlup.jpg"))); // NOI18N
@@ -1211,7 +1217,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(2);
+        jTabbedPane1.setSelectedIndex(1);
         lblNhansu.setBackground(Color.yellow);
         jLabel2.setBackground(Color.green);
         jLabel3.setBackground(Color.yellow);
@@ -1222,7 +1228,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(2);
         lblNhansu.setBackground(Color.yellow);
         jLabel2.setBackground(Color.yellow);
         jLabel3.setBackground(Color.green);
@@ -1661,45 +1667,53 @@ public class AdminFrame extends javax.swing.JFrame {
         btnXoaSP.setEnabled(true);
     }//GEN-LAST:event_tblSPKeyReleased
     private String convertDateTime(String inputDateTime) {
-    // Tách giờ phút giây từ chuỗi đầu vào
-    String timePart = inputDateTime.substring(0, 8);
-    String datePart = inputDateTime.substring(9); // Lấy phần ngày tháng năm
+     try {
+        String datePart = inputDateTime.substring(0, 2); // Lấy phần ngày
+        String monthPart = inputDateTime.substring(2, 4); // Lấy phần tháng
+        String yearPart = inputDateTime.substring(4); // Lấy phần năm
 
-    String[] timeArray = timePart.split(":");
-    int hour = Integer.parseInt(timeArray[0]);
-    int minute = Integer.parseInt(timeArray[1]);
-    int second = Integer.parseInt(timeArray[2]);
+        int year = Integer.parseInt(yearPart);
+        int month = Integer.parseInt(monthPart);
+        int day = Integer.parseInt(datePart);
 
-    // Kiểm tra CH hoặc SA để xác định AM/PM
-    if (datePart.contains("CH")) {
-        if (hour < 12) {
-            hour += 12;
+        // Kiểm tra giá trị tháng từ 1 đến 12
+        if (month < 1 || month > 12) {
+            // Xử lý thông báo lỗi hoặc điều chỉnh giá trị tháng tại đây
         }
-    } else {
-        if (hour == 12) {
-            hour = 0;
-        }
+
+        // Tạo đối tượng LocalDateTime với ngày tháng năm từ chuỗi đầu vào
+        LocalDateTime localDateTime = LocalDateTime.of(year, month, day, 0, 0, 0); // Giờ, phút, giây được đặt là 0
+
+        // Định dạng lại chuỗi theo "yyyy-MM-dd HH:mm:ss"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return localDateTime.format(formatter);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return ""; // Hoặc xử lý lỗi theo ý của bạn
     }
-
-    // Tách phần ngày tháng năm
-    int year = Integer.parseInt(datePart.substring(6));
-    int month = Integer.parseInt(datePart.substring(3, 5));
-    int day = Integer.parseInt(datePart.substring(0, 2));
-
-    // Tạo đối tượng LocalDateTime
-    LocalDateTime localDateTime = LocalDateTime.of(year, month, day, hour, minute, second);
-
-    // Định dạng lại chuỗi theo "yyyy-MM-dd HH:mm:ss"
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    return localDateTime.format(formatter);
-}
-
-
+}   public String layGio(String s){
+    String[] parts = s.split("-");
+    String nam = parts[0]; 
+    String thang = parts[1];
+    String ngayGio = parts[2];
     
+    String[] ngayGioParts = ngayGio.split(" "); // Tách ngày và giờ
+    String ngay = ngayGioParts[0]; // Lấy phần ngày
+    String gioPhutGiay = ngayGioParts[1]; // Lấy phần giờ:phút:giây
+    
+    String gioPhut = gioPhutGiay.substring(0, 5); // Lấy phần giờ:phút
+    
+    return nam + "-" + thang + "-" + ngay + " " + gioPhut + ":00";
+}   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Timestamp tuNgay = Timestamp.valueOf(convertDateTime(cbxTuNgay.getSelectedItem().toString() + " 00:00:00"));
-        Timestamp denNgay = Timestamp.valueOf(convertDateTime(cbxDenNgay.getSelectedItem().toString() + " 23:59:59"));
+//         String tuNgayGiaoDien = cbxTuNgay.getSelectedItem().toString();
+//    String denNgayGiaoDien = cbxDenNgay.getSelectedItem().toString();
+//
+//    Timestamp tuNgay = Timestamp.valueOf(convertDateTime(tuNgayGiaoDien + "0000")); // Thêm giờ, phút, giây mặc định 00:00:00
+//    Timestamp denNgay = Timestamp.valueOf(convertDateTime(denNgayGiaoDien + "2359")); // Thêm giờ, phút, giây mặc định 23:59:59
+String tuNgay = cbxTuNam.getSelectedItem() + "-" + cbxTuThang.getSelectedItem() + "-" + cbxTuNgay.getSelectedItem();
+String denNgay = cbxDenNam.getSelectedItem() + "-" + cbxDenThang.getSelectedItem() + "-" + cbxDenNgay.getSelectedItem() + " 23:59:00";
     try {
         tblModelThongKe.setRowCount(0);
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -1709,20 +1723,23 @@ public class AdminFrame extends javax.swing.JFrame {
         Connection conn = DriverManager.getConnection(Url, dbuser, pass);
         
         // Chuyển đổi định dạng cột datetime từ varchar sang ngày tháng
-        String sql = "SELECT * FROM receipt WHERE datetime >= STR_TO_DATE(?, '%h:%i:%s %p%m-%d-%Y') AND datetime <= STR_TO_DATE(?, '%h:%i:%s %p%m-%d-%Y')";
+        String sql = "SELECT * FROM receipt WHERE datetime >= ? AND datetime <= ?";
         PreparedStatement st = conn.prepareStatement(sql);
 //        st.setString(1, convertDateTime(cbxTuNgay.getSelectedItem().toString()));
 //        st.setString(2, convertDateTime(cbxDenNgay.getSelectedItem().toString() + " 23:59:59"));
-        st.setTimestamp(1, tuNgay);
-        st.setTimestamp(2, denNgay);
+        st.setString(1, tuNgay);
+        st.setString(2, denNgay);
         ResultSet rs = st.executeQuery();
         long doanhthuan = 0, doanhthuuong = 0;
 
         while (rs.next()) {
             Object[] row = new Object[]{
-                rs.getString("datetime"), rs.getInt(1), rs.getString(2), formatter.format(rs.getInt(5)),
-                formatter.format(rs.getInt(4))
-            };
+        layGio(rs.getString(3)), // Sử dụng hàm layGio để định dạng lại ngày giờ
+        rs.getInt(1),
+        rs.getString(2),
+        formatter.format(rs.getInt(5)),
+        formatter.format(rs.getInt(4))
+    };
 
             doanhthuan += rs.getInt(5);
             doanhthuuong += rs.getInt(4);
