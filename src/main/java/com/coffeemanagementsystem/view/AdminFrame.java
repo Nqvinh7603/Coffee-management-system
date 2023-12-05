@@ -478,11 +478,21 @@ public class AdminFrame extends javax.swing.JFrame {
         buttonGroup2.add(rdoThuNgan);
         rdoThuNgan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         rdoThuNgan.setText("Thu ngân");
+        rdoThuNgan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoThuNganActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rdoNhanVien);
         rdoNhanVien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         rdoNhanVien.setSelected(true);
         rdoNhanVien.setText("Nhân viên");
+        rdoNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoNhanVienActionPerformed(evt);
+            }
+        });
 
         btnThem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnThem.setText("Thêm");
@@ -1759,6 +1769,14 @@ String denNgay = cbxDenNam.getSelectedItem() + "-" + cbxDenThang.getSelectedItem
         JOptionPane.showMessageDialog(this, "Ngày không hợp lệ", "LỖI", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void rdoThuNganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoThuNganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoThuNganActionPerformed
+
+    private void rdoNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNhanVienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoNhanVienActionPerformed
 
     private DefaultTableModel tblModel;
     private DefaultTableModel tblModelSP;
